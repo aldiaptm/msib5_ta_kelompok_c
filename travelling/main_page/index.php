@@ -112,7 +112,7 @@
                     <img class="w-100" src="img/carousel-2.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Travelling</h4>
+                            <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Jelajahi Tempat Wisata Bersama Kami</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
                         </div>
@@ -146,9 +146,8 @@
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
                         <h1 class="mb-3">
                             Kami Menyediakan Paket Wisata Terbaik Sesuai Budget Anda</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore
-                            sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et
-                            erat sed diam duo</p>
+                        <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif
+                            kalian bisa menikmati liburan tanpa khawatir.</p>
                         <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid" src="img/mr.jpeg" alt="">
