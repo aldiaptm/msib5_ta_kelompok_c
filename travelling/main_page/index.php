@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TRAVELER - Free Travel Website Template</title>
+    <title>EDU TRAVEL</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -61,8 +61,6 @@
         </div>
     </div>
     <!-- Topbar End -->
-
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -104,7 +102,7 @@
                     <img class="w-100" src="img/carousel-1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Edu-Travelling</h4>
+                            <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
                         </div>
@@ -134,13 +132,6 @@
         </div>
     </div>
     <!-- Carousel End -->
-
-
-    <!-- Booking Start -->
-
-    <!-- Booking End -->
-
-
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5">
@@ -173,8 +164,6 @@
         </div>
     </div>
     <!-- About End -->
-
-
     <!-- Feature Start -->
     <div class="container-fluid pb-5">
         <div class="container pb-5">
@@ -219,8 +208,6 @@
         </div>
     </div>
     <!-- Feature End -->
-
-
     <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
@@ -259,14 +246,6 @@
             </div>
         </div>
     </div>
-    <!-- Destination Start -->
-
-
-    <!-- Service Start -->
-
-    <!-- Service End -->
-
-
     <!-- Packages Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
@@ -405,64 +384,6 @@
         </div>
     </div>
     <!-- Packages End -->
-
-
-    <!-- Registration Start -->
-    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="mb-4">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
-                        <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
-                    </div>
-                    <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem
-                        ipsum ut sed eos,
-                        ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-                        dolor</p>
-                    <ul class="list-inline text-white m-0">
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam
-                        </li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-5">
-                    <div class="card border-0">
-                        <div class="card-header bg-primary text-center p-4">
-                            <h1 class="text-white m-0">Sign Up Now</h1>
-                        </div>
-                        <div class="card-body rounded-bottom bg-white p-5">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Your name"
-                                        required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control p-4" placeholder="Your email"
-                                        required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Select a destination</option>
-                                        <option value="1">destination 1</option>
-                                        <option value="2">destination 1</option>
-                                        <option value="3">destination 1</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Registration End -->
-
 
     <!-- Team Start -->
     <div class="container-fluid py-5">
@@ -610,15 +531,12 @@
         </div>
     </div>
     <!-- Testimonial End -->
-
-
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
+                    <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
                 <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
                     vero lorem dolor dolor</p>
@@ -657,8 +575,8 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+622 540 12</p>
+                <p><i class="fa fa-envelope mr-2"></i>edutravel@gmail.com</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
