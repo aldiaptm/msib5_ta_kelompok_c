@@ -88,6 +88,10 @@
             <div id="content">
                 <h1 style="padding: 50px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL</h1>
             </div>
+            <?php
+            include '../koneksi.php'
+            ?>
+            <p>Jumlah Destinasi:</p>
             <!-- End of Main Content -->
 
             <!-- Footer -->
