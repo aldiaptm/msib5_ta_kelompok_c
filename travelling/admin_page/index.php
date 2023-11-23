@@ -91,7 +91,7 @@
             <?php
             include '../koneksi.php'
             ?>
-            <p>Jumlah Destinasi:</p>
+            <p>Jumlah Destinasi Wisata:</p>
             <!-- End of Main Content -->
 
             <!-- Footer -->
