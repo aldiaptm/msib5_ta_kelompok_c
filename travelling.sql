@@ -83,10 +83,10 @@ CREATE TABLE `destinasi` (
 --
 
 INSERT INTO `destinasi` (`id_destinasi`, `nama_destinasi`, `gambar`, `lokasi`, `harga`, `deskripsi`, `ulasan`, `id_kategori`) VALUES
-(1, 'kebun raya bogor', 'img/krb.jpeg', 'Bogor', 15000.00, 'Kebun Raya Bogor atau Kebun Botani Bogor adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Kebun ini dioperasikan oleh Badan Riset dan Inovasi Nasional. Kebun ini terletak di pusat kota Bogor dan bersebelahan dengan kompleks istana kepresidenan Istana Bogor.', '', 1),
-(2, 'pantai sawarna', 'img/pantai.jpeg', 'Banten', 5000.00, 'Pantai Sawarna dikenal karena keindahan alamnya yang menakjubkan. Pantai ini memiliki pasir putih yang lembut, ombak yang besar, dan pemandangan laut yang menakjubkan. Vegetasi alami yang subur di sekitar pantai juga menambah pesona alam Pantai Sawarna.', '', 3),
-(3, 'kuliner angkringan malioboro', 'img/angkringan.jpeg', 'yogyakarta', 10000.00, 'Angkringan adalah warung makan jalanan yang populer di Malioboro. Warung ini menawarkan berbagai hidangan ringan dan nasi kucing dengan harga yang terjangkau. Pengunjung dapat memilih dari berbagai macam lauk-pauk, sambal, dan kerupuk untuk dinikmati bersama nasi kecil.', '', 2),
-(4, 'kuliner gudeg malioboro', 'img/gudeg.jpg', 'yogyakarta', 10000.00, 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', '', 2);
+(1, 'Kebun Raya Bogor', 'img/krb.jpeg', 'Bogor', 15000.00, 'Kebun Raya Bogor atau Kebun Botani Bogor adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Kebun ini dioperasikan oleh Badan Riset dan Inovasi Nasional. Kebun ini terletak di pusat kota Bogor dan bersebelahan dengan kompleks istana kepresidenan Istana Bogor.', '', 1),
+(2, 'Pantai Sawarna', 'img/pantai.jpeg', 'Banten', 5000.00, 'Pantai Sawarna dikenal karena keindahan alamnya yang menakjubkan. Pantai ini memiliki pasir putih yang lembut, ombak yang besar, dan pemandangan laut yang menakjubkan. Vegetasi alami yang subur di sekitar pantai juga menambah pesona alam Pantai Sawarna.', '', 3),
+(3, 'Kuliner Angkringan Malioboro', 'img/angkringan.jpeg', 'yogyakarta', 10000.00, 'Angkringan adalah warung makan jalanan yang populer di Malioboro. Warung ini menawarkan berbagai hidangan ringan dan nasi kucing dengan harga yang terjangkau. Pengunjung dapat memilih dari berbagai macam lauk-pauk, sambal, dan kerupuk untuk dinikmati bersama nasi kecil.', '', 2),
+(4, 'Kuliner Gudeg Malioboro', 'img/gudeg.jpg', 'yogyakarta', 10000.00, 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', '', 2);
 
 -- --------------------------------------------------------
 
@@ -116,9 +116,9 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-(1, 'wisata alam'),
-(2, 'wisata kuliner'),
-(3, 'wisata pantai');
+(1, 'Wisata Alam'),
+(2, 'Wisata Kuliner'),
+(3, 'Wisata Pantai');
 
 -- --------------------------------------------------------
 
