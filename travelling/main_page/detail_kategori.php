@@ -78,7 +78,7 @@
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
                         <a href="service.php" class="nav-item nav-link">Services</a>
-                        <a href="destination.php" class="nav-item nav-link active">Destination</a>
+                        <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
@@ -100,11 +100,13 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Destinasi</h3>
+                <h3 class="display-4 text-white text-uppercase">Detail Destinasi</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="index.php">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Destination</p>
+                    <p class="m-0 text-uppercase"><a class="text-white" href="category.php">Category</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Destination Detail</p>
                 </div>
             </div>
         </div>
@@ -116,14 +118,15 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Destinasi Wisata Terbaik</h1>
+                <h1>Destinasi Wisata Terkait</h1>
             </div>
             <div class="row">
                 <?php
                     include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where id_destinasi=id_destinasi;");
-                ?>
-                <?php 
+
+                    $id_terima = $_GET['id_kategori'];
+                    $query = mysqli_query($koneksi, "SELECT * FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where d.id_kategori=$id_terima;");
+
                     if(mysqli_num_rows($query)>0){
                     while($data = mysqli_fetch_array($query)){
                 ?>
@@ -151,40 +154,6 @@
         </div>
     </div>
     <!-- Packages End -->
-
-
-    <!-- Destination Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Jelajahi Tempat Wisata terbaik</h1>
-            </div>
-            <div class="row">
-                <?php
-                    include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT *, COUNT(d.id_kategori) as jumlah FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where k.id_kategori=k.id_kategori GROUP BY d.id_kategori;");
-                ?>
-                <?php 
-                    if(mysqli_num_rows($query)>0){
-                    while($data = mysqli_fetch_array($query)){
-                ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="<?php echo $data["gambar_kategori"] ?>" style="width:500px; height: 180px;">
-                        <a class="destination-overlay text-white text-decoration-none" href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>">
-                            <h5 class="text-white"></i><?php echo $data["nama_kategori"] ?></h5>
-                            <span><?php echo $data["jumlah"] ?> destinasi</span>
-                        </a>
-                    </div>
-                </div>
-                <?php } ?>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-    <!-- Destination Start -->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
