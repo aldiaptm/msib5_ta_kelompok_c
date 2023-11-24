@@ -113,7 +113,8 @@
     </div>
     <!-- Header End -->
 
-    <!-- Packages Start -->
+
+    <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -153,8 +154,9 @@
             </div>
         </div>
     </div>
-    <!-- Packages End -->
+    <!-- Destination End -->
 
+    
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">

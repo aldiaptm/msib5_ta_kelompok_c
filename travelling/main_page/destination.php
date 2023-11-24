@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EDU - TRAVELER</title>
+    <title>EDU - TRAVEL</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -111,7 +111,8 @@
     </div>
     <!-- Header End -->
 
-    <!-- Packages Start -->
+
+    <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -150,14 +151,14 @@
             </div>
         </div>
     </div>
-    <!-- Packages End -->
+    <!-- Destination End -->
 
 
-    <!-- Destination Start -->
+    <!-- Category Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination Category</h6>
                 <h1>Jelajahi Tempat Wisata terbaik</h1>
             </div>
             <div class="row">
@@ -183,7 +184,7 @@
             </div>
         </div>
     </div>
-    <!-- Destination Start -->
+    <!-- Category End-->
 
 
     <!-- Footer Start -->
