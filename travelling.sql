@@ -108,17 +108,18 @@ CREATE TABLE `fasilitas` (
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
-  `nama_kategori` varchar(100) NOT NULL
+  `nama_kategori` varchar(100) NOT NULL,
+  `gambar_kategori` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-(1, 'Wisata Alam'),
-(2, 'Wisata Kuliner'),
-(3, 'Wisata Pantai');
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
+(1, 'Wisata Alam', 'img/wa.jpeg'),
+(2, 'Wisata Kuliner', 'img/gd.jpeg'),
+(3, 'Wisata Pantai', 'img/krj.jpeg');
 
 -- --------------------------------------------------------
 
