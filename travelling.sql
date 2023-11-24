@@ -43,6 +43,20 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_contact` int(50) NOT NULL,
+  `nama_contact` varchar(50) NOT NULL,
+  `subjek` varchar(50) NOT NULL,
+  `pesan` text NOT NULL,
+  `tanggal_contact` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `customer`
 --
 
@@ -133,6 +147,17 @@ CREATE TABLE `reservasi` (
   `reservasi_tanggal` datetime NOT NULL,
   `id_destinasi` int(11) NOT NULL,
   `id_fasilitas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+CREATE TABLE `ulasan` (
+  `id_ulasan` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `pesan` text NOT NULL,
+  `tanggal_ulasan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
