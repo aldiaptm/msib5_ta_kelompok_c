@@ -20,6 +20,20 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        .footer {
+            padding-left: 10px;
+            line-height: 50px;
+            position: absolute;
+            bottom: 0px;
+            right: 20px;
+        }
+
+        th {
+            width: 500px;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -54,10 +68,10 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="data/customer.php">Customer</a>
-                        <a class="collapse-item" href="data/fasilitas.php">Fasilitas</a>
-                        <a class="collapse-item" href="data/kategori.php">Kategori</a>
-                        <a class="collapse-item" href="data/reservasi.php">Reservasi</a>
+                        <a class="collapse-item" href="customer/customer.php">Customer</a>
+                        <a class="collapse-item" href="fasilitas/fasilitas.php">Fasilitas</a>
+                        <a class="collapse-item" href="kategori/kategori.php">Kategori</a>
+                        <a class="collapse-item" href="reservasi/reservasi.php">Reservasi</a>
                     </div>
                 </div>
             </li>
@@ -82,26 +96,61 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div class="container">
 
             <!-- Main Content -->
             <div id="content">
-                <h1 style="padding: 50px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL</h1>
+                <h1 style="padding: 50px; margin-bottom: 130px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL</h1>
             </div>
+            
             <?php
-            include '../koneksi.php'
+            include '../koneksi.php';
             ?>
-            <p>Jumlah Destinasi Wisata:</p>
+            <table class="table table-bordered" style="">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>
+                            Jumlah Destinasi Wisata
+                        </th>
+                        <th>
+                            Jumlah Fasilitas
+                        </th>
+                        <th>
+                            Jumlah Reservasi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    ?>
+                    <tr style="text-align: center;">
+                        <td>
+                            <?php
+                            $query = mysqli_query($koneksi, "SELECT COUNT(id_destinasi) AS totaldestinasi FROM destinasi;");
+                            $data = mysqli_fetch_array($query);
+                            echo $data["totaldestinasi"] ?>
+                        </td>
+                        <td>
+                            <?php
+                            $ambil = mysqli_query($koneksi, "SELECT COUNT(id_fasilitas) AS totalfasilitas FROM fasilitas;");
+                            $isi = mysqli_fetch_array($ambil);
+                            echo $isi["totalfasilitas"] ?>
+                        </td>
+                        <td>
+                            <?php
+                            $ambil = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
+                            $isi = mysqli_fetch_array($ambil);
+                            echo $isi["totalreservasi"] ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Edu-Travel</span>
-                    </div>
-                </div>
-            </footer>
+            <div class="footer">
+                <span>Copyright &copy; Edu-Travel</span>
+            </div>
             <!-- End of Footer -->
 
         </div>
