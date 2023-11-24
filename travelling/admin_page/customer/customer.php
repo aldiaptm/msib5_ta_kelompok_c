@@ -45,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="../index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,17 +58,17 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="data/customer.php">Customer</a>
-                        <a class="collapse-item" href="data/fasilitas.php">Fasilitas</a>
-                        <a class="collapse-item" href="data/kategori.php">Kategori</a>
-                        <a class="collapse-item" href="data/reservasi.php">Reservasi</a>
+                        <a class="collapse-item" href="customer.php">Customer</a>
+                        <a class="collapse-item" href="../fasilitas/fasilitas.php">Fasilitas</a>
+                        <a class="collapse-item" href="../kategori/kategori.php">Kategori</a>
+                        <a class="collapse-item" href="../reservasi/reservasi.php">Reservasi</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.php">
+                <a class="nav-link" href="../tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -95,14 +95,8 @@
                 <!-- Begin Page Content -->
                 <div class="container">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4 mt-5">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px" href="../index.php">Home</a>
@@ -111,45 +105,34 @@
                                     <thead>
                                         <tr style="text-align: center;">
                                             <th>Nama</th>
-                                            <th>Gambar</th>
-                                            <th>Lokasi</th>
-                                            <th>HTM</th>
-                                            <th>Deskripsi</th>
-                                            <th>Ulasan</th>
+                                            <th>Email</th>
+                                            <th>Telepon</th>
                                             <th style="width: 80px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         require_once '../../koneksi.php';
-                                        $sql = "SELECT * FROM destinasi";
+                                        $sql = "SELECT * FROM customer";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <?= $data['nama_destinasi']; ?>
-                                                </td>
-                                                <td><img src="<?= $data['gambar']; ?>" alt="<?= $data['gambar']; ?>"
-                                                        style="width:100px"></td>
-                                                <td>
-                                                    <?= $data['lokasi']; ?>
+                                                    <?= $data['nama']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['harga']; ?>
+                                                    <?= $data['email']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['deskripsi']; ?>
+                                                    <?= $data['telepon']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['ulasan']; ?>
-                                                </td>
-                                                <td>
-                                                    <a href="edit.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
+                                                    <a href="edit.php?id_customer=<?php echo $data["id_customer"] ?>"
                                                         class="label label-warning"> Edit
                                                     </a>
                                                     &nbsp;
-                                                    <a href="hapus.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
+                                                    <a href="hapus.php?id_customer=<?php echo $data["id_customer"] ?>"
                                                         class="label label-danger"> Delete
                                                     </a>
                                                 </td>
@@ -184,30 +167,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-success" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

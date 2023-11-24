@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("location: index.php");
     } else {
         // Jika user tidak ditemukan, tampilkan pesan error
-        echo "Username atau password salah";
+        $error_message = "Username atau password salah";
+        header("location: login.php?error=$error_message");
     }
 }
 ?>

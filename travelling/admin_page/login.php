@@ -19,7 +19,17 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            <?php
+            // Mengecek apakah terdapat parameter error dari URL
+            if (isset($_GET['error'])) {
+                $error = $_GET['error'];
+                echo "alert('$error');";
+            }
+            ?>
+        });
+    </script>
 </head>
 
 <body class="bg-gradient-success">
@@ -38,7 +48,8 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang di Halaman Login ADMIN EDU-TRAVEL</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang di Halaman Login ADMIN
+                                            EDU-TRAVEL</h1>
                                     </div>
                                     <form class="user" action="proses_login.php" method="post">
                                         <div class="form-group">
@@ -48,7 +59,8 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" name="password" required>
+                                                id="exampleInputPassword" placeholder="Password" name="password"
+                                                required>
                                         </div>
                                         <button type="submit" class="btn btn-success btn-user btn-block">
                                             Login
