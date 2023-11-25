@@ -124,11 +124,11 @@
                                                     <?= $data['keterangan']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="edit.php?id_customer=<?php echo $data["id_customer"] ?>"
+                                                    <a href="edit.php?id_fasilitas=<?php echo $data["id_fasilitas"] ?>"
                                                         class="label label-warning"> Edit
                                                     </a>
                                                     &nbsp;
-                                                    <a href="hapus.php?id_customer=<?php echo $data["id_customer"] ?>"
+                                                    <a href="hapus.php?id_fasilitas=<?php echo $data["id_fasilitas"] ?>"
                                                         class="label label-danger"> Delete
                                                     </a>
                                                 </td>
