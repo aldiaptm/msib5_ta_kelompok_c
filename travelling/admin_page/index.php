@@ -138,9 +138,9 @@
                         </td>
                         <td>
                             <?php
-                            $ambil = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
-                            $isi = mysqli_fetch_array($ambil);
-                            echo $isi["totalreservasi"] ?>
+                            $cokot = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
+                            $eusi = mysqli_fetch_array($cokot);
+                            echo $eusi["totalreservasi"] ?>
                         </td>
                     </tr>
                 </tbody>

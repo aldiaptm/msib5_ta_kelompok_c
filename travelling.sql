@@ -182,6 +182,15 @@ CREATE TABLE `ulasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `ulasan`
+--
+
+INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
+(1, `Ujang`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:17:51`),
+(2, `Tani`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:26:51`),
+(3, `Widya`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:27:51`);
+
+--
 -- Indexes for dumped tables
 --
 
