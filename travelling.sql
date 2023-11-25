@@ -186,9 +186,9 @@ CREATE TABLE `ulasan` (
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
-(1, `Ujang`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:17:51`),
-(2, `Tani`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:26:51`),
-(3, `Widya`, `Bagus dan Nyaman, terbaik`, `2023-11-25 07:27:51`);
+(1, 'Ujang', 'Terus tingkatkan pelayanannya!', '2023-11-25 07:42:06'),
+(2, 'Tati', 'Terus tingkatkan Pembayarannya!', '2023-11-25 07:43:06'),
+(3, 'Tukul', 'Terus tingkatkan harganya!', '2023-11-25 07:43:00');
 
 --
 -- Indexes for dumped tables
