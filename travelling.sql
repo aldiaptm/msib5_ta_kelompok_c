@@ -182,6 +182,15 @@ CREATE TABLE `ulasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `ulasan`
+--
+
+INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
+(1, 'Ujang', 'Terus tingkatkan pelayanannya!', '2023-11-25 07:42:06'),
+(2, 'Tati', 'Terus tingkatkan Pembayarannya!', '2023-11-25 07:43:06'),
+(3, 'Tukul', 'Terus tingkatkan harganya!', '2023-11-25 07:43:00');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -225,6 +234,11 @@ ALTER TABLE `reservasi`
   ADD KEY `id_destinasi` (`id_destinasi`),
   ADD KEY `id_fasilitas` (`id_fasilitas`);
 
+--
+-- Indeks untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id_ulasan`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -265,6 +279,12 @@ ALTER TABLE `kategori`
 --
 ALTER TABLE `reservasi`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
