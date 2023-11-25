@@ -114,6 +114,15 @@ CREATE TABLE `fasilitas` (
   `keterangan` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `fasilitas`
+--
+
+INSERT INTO `fasilitas` (`id_fasilitas`, `tipe`, `keterangan`) VALUES
+(1, 'Reguler', 'Melihat satwa, Menghadiri pertunjukan, Menggunakan fasilitas umum, dan Berpartisipasi dalam aktivitas edukasi.\r\n'),
+(2, 'Reguler', 'Tempat parkir, Warung makan, Area bermain pantai.'),
+(3, 'Ekonomi', 'Tempat parkir, Toilet, Mushola, Tempat makan, Kipas angin.');
+
 -- --------------------------------------------------------
 
 --
@@ -148,6 +157,18 @@ CREATE TABLE `reservasi` (
   `id_destinasi` int(11) NOT NULL,
   `id_fasilitas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `reservasi`
+--
+
+INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id_destinasi`, `id_fasilitas`) VALUES
+(1, 1, '2023-11-24 05:33:18', 1, 1),
+(2, 2, '2023-11-24 07:53:45', 2, 2),
+(3, 2, '2023-11-24 08:01:04', 3, 3),
+(4, 1, '2023-11-24 08:02:09', 4, 3);
+
+-- --------------------------------------------------------
 
 --
 -- Indexes for dumped tables
@@ -214,6 +235,12 @@ ALTER TABLE `reservasi`
   ADD KEY `id_fasilitas` (`id_fasilitas`);
 
 --
+-- Indeks untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id_ulasan`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -252,6 +279,12 @@ ALTER TABLE `kategori`
 --
 ALTER TABLE `reservasi`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
