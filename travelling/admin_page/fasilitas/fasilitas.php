@@ -118,7 +118,7 @@
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <?= $data['tipa']; ?>
+                                                    <?= $data['tipe']; ?>
                                                 </td>
                                                 <td>
                                                     <?= $data['keterangan']; ?>
