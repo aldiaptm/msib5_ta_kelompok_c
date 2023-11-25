@@ -219,23 +219,29 @@
             </div>
             <div class="row">
                 <?php
-                    include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT *, COUNT(d.id_kategori) as jumlah FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where k.id_kategori=k.id_kategori GROUP BY d.id_kategori;");
+                include '../koneksi.php';
+                $query = mysqli_query($koneksi, "SELECT *, COUNT(d.id_kategori) as jumlah FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where k.id_kategori=k.id_kategori GROUP BY d.id_kategori;");
                 ?>
-                <?php 
-                    if(mysqli_num_rows($query)>0){
-                    while($data = mysqli_fetch_array($query)){
-                ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="<?php echo $data["gambar_kategori"] ?>" style="width:500px; height: 180px;">
-                        <a class="destination-overlay text-white text-decoration-none" href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>">
-                            <h5 class="text-white"></i><?php echo $data["nama_kategori"] ?></h5>
-                            <span><?php echo $data["jumlah"] ?> destinasi</span>
-                        </a>
-                    </div>
-                </div>
-                <?php } ?>
+                <?php
+                if (mysqli_num_rows($query) > 0) {
+                    while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="destination-item position-relative overflow-hidden mb-2">
+                                <img class="img-fluid" src="<?php echo $data["gambar_kategori"] ?>"
+                                    style="width:500px; height: 180px;">
+                                <a class="destination-overlay text-white text-decoration-none"
+                                    href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>">
+                                    <h5 class="text-white"></i>
+                                        <?php echo $data["nama_kategori"] ?>
+                                    </h5>
+                                    <span>
+                                        <?php echo $data["jumlah"] ?> destinasi
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
             </div>
         </div>
@@ -251,32 +257,41 @@
             </div>
             <div class="row">
                 <?php
-                    include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where id_destinasi=id_destinasi;");
+                include '../koneksi.php';
+                $query = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where id_destinasi=id_destinasi;");
                 ?>
-                <?php 
-                    if(mysqli_num_rows($query)>0){
-                    while($data = mysqli_fetch_array($query)){
-                ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i><?php echo $data["nama_kategori"] ?></small>
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $data["lokasi"] ?></small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"><?php echo $data["nama_destinasi"] ?></a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="m-0"><i class="fas fa-dollar-sign text-primary mr-2"> HTM :</i></h5>
-                                    <h5 class="m-0"><?php echo "Rp. " . number_format($data["harga"],0,',','.') ?></h5>
+                <?php
+                if (mysqli_num_rows($query) > 0) {
+                    while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
+                                <div class="p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i>
+                                            <?php echo $data["nama_kategori"] ?>
+                                        </small>
+                                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                            <?php echo $data["lokasi"] ?>
+                                        </small>
+                                    </div>
+                                    <a class="h5 text-decoration-none"
+                                        href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>">
+                                        <?php echo $data["nama_destinasi"] ?>
+                                    </a>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
+                                            <h5 class="m-0">
+                                                <?php echo "Rp. " . number_format($data["harga"], 0, ',', '.') ?>
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <?php } ?>
+                    <?php } ?>
                 <?php } ?>
             </div>
         </div>
@@ -296,12 +311,13 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/aldi.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.twitter.com"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
                                         class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.linkedin.com"><i
                                         class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -316,12 +332,13 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/nurfadilah.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.twitter.com"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
                                         class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.linkedin.com"><i
                                         class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -336,12 +353,13 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/linda.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.twitter.com"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
                                         class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.linkedin.com"><i
                                         class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -356,12 +374,13 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/fawwaz.jpg" alt="">
                             <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.twitter.com"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-primary btn-square" href="https://www.facebook.com"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
                                         class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i
+                                <a class="btn btn-outline-primary btn-square" href="https://www.linkedin.com"><i
                                         class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -385,7 +404,6 @@
             </div>
             <div class="owl-carousel testimonial-carousel">
                 <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod
                             eos labore diam
@@ -395,7 +413,6 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod
                             eos labore diam
@@ -405,7 +422,6 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod
                             eos labore diam
@@ -415,7 +431,6 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod
                             eos labore diam
@@ -428,7 +443,7 @@
         </div>
     </div>
     <!-- Testimonial End -->
-    
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
@@ -440,51 +455,41 @@
                     vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Service</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Category</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Developer</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Service</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Category</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Developer</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Indonesia</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+622 540 12</p>
                 <p><i class="fa fa-envelope mr-2"></i>edutravel@gmail.com</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
-                <div class="w-100">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;"
-                            placeholder="Your Email">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary px-3">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -492,11 +497,11 @@
         style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
+                <p class="m-0 text-white-50">Copyright &copy;Edu-Travel
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                <p class="m-0 text-white-50">Designed by Developer
                 </p>
             </div>
         </div>
