@@ -226,6 +226,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id_ulasan`);
+
+--
 -- Indeks untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
@@ -233,12 +239,6 @@ ALTER TABLE `reservasi`
   ADD KEY `id_customer` (`id_customer`),
   ADD KEY `id_destinasi` (`id_destinasi`),
   ADD KEY `id_fasilitas` (`id_fasilitas`);
-
---
--- Indeks untuk tabel `ulasan`
---
-ALTER TABLE `ulasan`
-  ADD PRIMARY KEY (`id_ulasan`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -281,12 +281,6 @@ ALTER TABLE `reservasi`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `ulasan`
---
-ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
@@ -295,6 +289,13 @@ ALTER TABLE `ulasan`
 --
 ALTER TABLE `destinasi`
   ADD CONSTRAINT `destinasi_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
+
+--
+-- AUTO_INCREMENT for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
 
 --
 -- Ketidakleluasaan untuk tabel `reservasi`
