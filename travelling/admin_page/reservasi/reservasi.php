@@ -328,7 +328,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require_once '../koneksi.php';
+                                        require_once '../../koneksi.php';
                                         $sql = "SELECT * FROM destinasi";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
