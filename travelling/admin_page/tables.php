@@ -44,7 +44,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -58,16 +58,16 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="data/customer.php">Customer</a>
-                        <a class="collapse-item" href="data/fasilitas.php">Fasilitas</a>
-                        <a class="collapse-item" href="data/kategori.php">Kategori</a>
-                        <a class="collapse-item" href="data/reservasi.php">Reservasi</a>
+                        <a class="collapse-item" href="customer/customer.php">Customer</a>
+                        <a class="collapse-item" href="fasilitas/fasilitas.php">Fasilitas</a>
+                        <a class="collapse-item" href="kategori/kategori.php">Kategori</a>
+                        <a class="collapse-item" href="reservasi/reservasi.php">Reservasi</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
@@ -95,19 +95,17 @@
                 <!-- Begin Page Content -->
                 <div class="container">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-success">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-success">Data Destinasi</h6>
                         </div>
-                        <div class="btn btn-success m-3" style="width: 100px;">Tambah Data</div><br>
                         <div class="card-body">
+                            <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
+                                href="../index.php">Home</a>
+                            <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px"
+                                href="tambah.php">Tambah
+                                Data</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>

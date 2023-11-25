@@ -35,7 +35,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center" href="../index.php">
                 <img src="img/adminprofile.png" style="width: 40px; border-radius: 50%; margin-right: 10px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
