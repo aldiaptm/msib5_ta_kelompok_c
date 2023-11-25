@@ -142,7 +142,7 @@
                             <a class="h5 text-decoration-none" href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"><?php echo $data["nama_destinasi"] ?></a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="m-0"><i class="fas fa-dollar-sign text-primary mr-2"> HTM :</i></h5>
+                                    <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
                                     <h5 class="m-0"><?php echo "Rp. " . number_format($data["harga"],0,',','.') ?></h5>
                                 </div>
                             </div>
