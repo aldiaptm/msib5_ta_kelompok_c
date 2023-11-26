@@ -103,7 +103,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4 p-5">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-success">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-success">Data Kategori</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -114,9 +114,9 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Nama</th>
+                                            <th style="width: 200px;">Nama</th>
                                             <th>Gambar</th>
-                                            <th style="width: 80px;">Aksi</th>
+                                            <th style="width: 50px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -131,7 +131,7 @@
                                                     <?= $data['nama_kategori']; ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?= $data["gambar_kategori"]; ?>" alt="<?= $data["gambar_kategori"]; ?>">
+                                                    <img src="<?= $data["gambar_kategori"]; ?>" alt="<?= $data["gambar_kategori"]; ?>" style="width: 200px;">
                                                 </td>
                                                 <td>
                                                     <a href=" edit.php?id_kategori=<?php echo $data["id_kategori"] ?>"

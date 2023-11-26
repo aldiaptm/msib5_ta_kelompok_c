@@ -116,7 +116,7 @@
                                             <th>HTM</th>
                                             <th>Deskripsi</th>
                                             <th>Ulasan</th>
-                                            <th style="width: 80px;">Aksi</th>
+                                            <th style="width: 30px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -144,13 +144,13 @@
                                                 <td>
                                                     <?= $data['ulasan']; ?>
                                                 </td>
-                                                <td>
+                                                <td style="text-align: center;">
                                                     <a href="edit.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
-                                                        class="label label-warning"> Edit
+                                                        class="label label-warning"> <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
                                                     &nbsp;
                                                     <a href="hapus.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
-                                                        class="label label-danger"> Delete
+                                                        class="label label-danger"> <span class="glyphicon glyphicon-trash"></span>
                                                     </a>
                                                 </td>
                                             </tr>
