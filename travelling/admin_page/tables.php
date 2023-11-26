@@ -102,7 +102,7 @@
                         </div>
                         <div class="card-body">
                             <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
-                                href="../index.php">Home</a>
+                                href="index.php">Home</a>
                             <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px"
                                 href="tambah.php">Tambah
                                 Data</a>

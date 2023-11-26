@@ -100,9 +100,10 @@
 
             <!-- Main Content -->
             <div id="content">
-                <h1 style="padding: 50px; margin-bottom: 130px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL</h1>
+                <h1 style="padding: 50px; margin-bottom: 130px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN
+                    EDU-TRAVEL</h1>
             </div>
-            
+
             <?php
             include '../koneksi.php';
             ?>
@@ -110,13 +111,13 @@
                 <thead>
                     <tr style="text-align: center;">
                         <th>
-                            Jumlah Destinasi Wisata
+                            <a href="tables.php">Jumlah Destinasi Wisata</a>
                         </th>
                         <th>
-                            Jumlah Fasilitas
+                            <a href="fasilitas/fasilitas.php">Jumlah Fasilitas</a>
                         </th>
                         <th>
-                            Jumlah Reservasi
+                            <a href="reservasi/reservasi.php">Jumlah Reservasi</a>
                         </th>
                     </tr>
                 </thead>
