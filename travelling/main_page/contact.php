@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -117,6 +116,9 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
+                <?php
+                include '../koneksi.php';
+                ?>
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
                 <h1>Contact For Any Queryy</h1>
             </div>
@@ -127,28 +129,26 @@
                         <form method="post" action="proses_tambah_contact.php">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="nama_contact" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your nama" />
+                                    <input type="text" class="form-control p-4" id="nama_contact" name="nama_contact"
+                                        placeholder="Your Name" required="required"
+                                        data-validation-required-message="Please enter your nama" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="subjek" placeholder="Your subjek"
-                                        required="required" data-validation-required-message="Please enter your subjek" />
+                                    <input type="text" class="form-control p-4" id="subjek" name="subjek" placeholder="Your subjek" 
+                                        required="required"
+                                        data-validation-required-message="Please enter your subjek" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="pesan" placeholder="pesan"
+                                <input type="text" class="form-control p-4" id="pesan" name="pesan" placeholder="pesan"
                                     required="required" data-validation-required-message="Please enter a pesan" />
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <input type="date" class="form-control p-4" id="tanggal_contact" placeholder="tangal"
-                                    required="required" data-validation-required-message="Please enter a tanggal" />
-                                <p class="help-block text-danger"></p>
-                            </div>
                             <div class="text-center">
-                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send Message</button>
+                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send
+                                    Message</button>
                             </div>
                         </form>
                     </div>
@@ -166,7 +166,8 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
+                    vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -207,7 +208,8 @@
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                        <input type="text" class="form-control border-light" style="padding: 25px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-3">Sign Up</button>
                         </div>
@@ -216,7 +218,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
