@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2023 pada 08.30
+-- Waktu pembuatan: 27 Nov 2023 pada 11.35
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.0.28
 
@@ -43,7 +43,7 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Struktur dari tabel `contact`
 --
 
 CREATE TABLE `contact` (
@@ -53,6 +53,15 @@ CREATE TABLE `contact` (
   `pesan` text NOT NULL,
   `tanggal_contact` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `contact`
+--
+
+INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal_contact`) VALUES
+(4, '', '', '', '2023-11-27 10:44:49'),
+(5, '', '', '', '2023-11-27 04:46:30'),
+(6, '', '', '', '2023-11-27 04:48:14');
 
 -- --------------------------------------------------------
 
@@ -170,7 +179,7 @@ INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id
 -- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Struktur dari tabel `ulasan`
 --
 
 CREATE TABLE `ulasan` (
@@ -181,7 +190,7 @@ CREATE TABLE `ulasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ulasan`
+-- Dumping data untuk tabel `ulasan`
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
@@ -198,6 +207,12 @@ INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indeks untuk tabel `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`);
 
 --
 -- Indeks untuk tabel `customer`
@@ -225,12 +240,6 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `ulasan`
---
-ALTER TABLE `ulasan`
-  ADD PRIMARY KEY (`id_ulasan`);
-
---
 -- Indeks untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
@@ -238,6 +247,12 @@ ALTER TABLE `reservasi`
   ADD KEY `id_customer` (`id_customer`),
   ADD KEY `id_destinasi` (`id_destinasi`),
   ADD KEY `id_fasilitas` (`id_fasilitas`);
+
+--
+-- Indeks untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id_ulasan`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -248,6 +263,12 @@ ALTER TABLE `reservasi`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `customer`
@@ -265,7 +286,7 @@ ALTER TABLE `destinasi`
 -- AUTO_INCREMENT untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
@@ -274,17 +295,16 @@ ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `ulasan`
---
-ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
+--
+-- AUTO_INCREMENT untuk tabel `ulasan`
+--
+ALTER TABLE `ulasan`
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -295,7 +315,6 @@ ALTER TABLE `reservasi`
 --
 ALTER TABLE `destinasi`
   ADD CONSTRAINT `destinasi_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
-
 
 --
 -- Ketidakleluasaan untuk tabel `reservasi`
