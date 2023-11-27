@@ -42,11 +42,12 @@
         }
 
         h1 {
-            font-size: 70px;
+            font-size: 50px;
             font-family: 'Times New Roman', Times, serif;
             text-align: center;
             color: darkgrey;
             padding: 40px;
+            margin-bottom: 100px;
         }
 
         .logout {
