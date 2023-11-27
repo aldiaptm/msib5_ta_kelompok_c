@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include 'koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user) {
         // Jika user ditemukan, redirect ke halaman admin
-        header("location: index.php");
+        header("location: admin_page/index.php");
     } else {
         // Jika user tidak ditemukan, tampilkan pesan error
         $error_message = "Username atau password salah";

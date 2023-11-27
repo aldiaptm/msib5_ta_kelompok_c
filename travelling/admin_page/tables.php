@@ -32,13 +32,16 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar"
+            style="width: 200px !important;">
 
             <!-- Sidebar - Brand -->
+            <br>
             <a class="sidebar-brand d-flex align-items-center" href="index.php">
-                <img src="img/adminprofile.png" style="width: 40px; border-radius: 50%; margin-right: 10px;">
+                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
+            <br>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -146,11 +149,13 @@
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <a href="edit.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
-                                                        class="label label-warning"> <span class="glyphicon glyphicon-pencil"></span>
+                                                        class="label label-warning"> <span
+                                                            class="glyphicon glyphicon-pencil"></span>
                                                     </a>
                                                     &nbsp;
                                                     <a href="hapus.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
-                                                        class="label label-danger"> <span class="glyphicon glyphicon-trash"></span>
+                                                        class="label label-danger"> <span
+                                                            class="glyphicon glyphicon-trash"></span>
                                                     </a>
                                                 </td>
                                             </tr>

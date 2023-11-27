@@ -32,13 +32,16 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar"
+            style="width: 200px !important;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center" href="index.php">
-                <img src="img/adminprofile.png" style="width: 40px; border-radius: 50%; margin-right: 10px;">
+            <br>
+            <a class="sidebar-brand d-flex align-items-center" href="../index.php">
+                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
+            <br>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -99,8 +102,10 @@
                     <div class="card shadow mb-4 mt-5">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px" href="../index.php">Home</a>
-                                <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px" href="tambah.php">Tambah Data</a>
+                                <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
+                                    href="../index.php">Home</a>
+                                <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px"
+                                    href="tambah.php">Tambah Data</a>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="text-align: center;">

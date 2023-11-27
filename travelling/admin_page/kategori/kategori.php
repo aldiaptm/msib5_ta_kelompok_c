@@ -32,13 +32,16 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar"
+            style="width: 200px !important;">
 
             <!-- Sidebar - Brand -->
+            <br>
             <a class="sidebar-brand d-flex align-items-center" href="../index.php">
-                <img src="img/adminprofile.png" style="width: 40px; border-radius: 50%; margin-right: 10px;">
+                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
+            <br>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -131,11 +134,12 @@
                                                     <?= $data['nama_kategori']; ?>
                                                 </td>
                                                 <td>
-                                                    <img src="<?= $data["gambar_kategori"]; ?>" alt="<?= $data["gambar_kategori"]; ?>" style="width: 200px;">
+                                                    <img src="<?= $data["gambar_kategori"]; ?>"
+                                                        alt="<?= $data["gambar_kategori"]; ?>" style="width: 200px;">
                                                 </td>
                                                 <td>
                                                     <a href=" edit.php?id_kategori=<?php echo $data["id_kategori"] ?>"
-                                                    class="label label-warning"> Edit
+                                                        class="label label-warning"> Edit
                                                     </a>
                                                     &nbsp;
                                                     <a href="hapus.php?id_kategori=<?php echo $data["id_kategori"] ?>"

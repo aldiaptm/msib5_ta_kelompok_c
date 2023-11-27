@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <style>
         .footer {
@@ -31,7 +32,27 @@
 
         th {
             width: 500px;
+            text-align: center;
         }
+
+        td {
+            text-align: center;
+            color: red;
+            font-size: bold;
+        }
+
+        h1 {
+            font-size: 70px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            color: darkgrey;
+            padding: 40px;
+        }
+
+        .logout {
+            margin-top: 150px;
+        }
+
     </style>
 
 </head>
@@ -42,13 +63,16 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar"
+            style="width: 200px !important;">
 
             <!-- Sidebar - Brand -->
+            <br>
             <a class="sidebar-brand d-flex align-items-center" href="index.php">
                 <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
+            <br>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -100,8 +124,9 @@
 
             <!-- Main Content -->
             <div id="content">
-                <h1 style="padding: 50px; margin-bottom: 130px; font-size: 60px;">SELAMAT DATANG DI HALAMAN ADMIN
-                    EDU-TRAVEL</h1>
+                <h1>
+                    SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL
+                </h1>
             </div>
 
             <?php
@@ -109,7 +134,7 @@
             ?>
             <table class="table table-bordered" style="">
                 <thead>
-                    <tr style="text-align: center;">
+                    <tr>
                         <th>
                             <a href="tables.php">Jumlah Destinasi Wisata</a>
                         </th>
@@ -124,28 +149,31 @@
                 <tbody>
                     <?php
                     ?>
-                    <tr style="text-align: center;">
+                    <tr>
                         <td>
                             <?php
                             $query = mysqli_query($koneksi, "SELECT COUNT(id_destinasi) AS totaldestinasi FROM destinasi;");
-                            $data = mysqli_fetch_array($query);
-                            echo $data["totaldestinasi"] ?>
+                            $data = mysqli_fetch_array($query); ?>
+                            <?php echo $data["totaldestinasi"] ?>
                         </td>
                         <td>
                             <?php
                             $ambil = mysqli_query($koneksi, "SELECT COUNT(id_fasilitas) AS totalfasilitas FROM fasilitas;");
-                            $isi = mysqli_fetch_array($ambil);
-                            echo $isi["totalfasilitas"] ?>
+                            $isi = mysqli_fetch_array($ambil); ?>
+                            <?php echo $isi["totalfasilitas"] ?>
                         </td>
                         <td>
                             <?php
                             $cokot = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
-                            $eusi = mysqli_fetch_array($cokot);
-                            echo $eusi["totalreservasi"] ?>
+                            $eusi = mysqli_fetch_array($cokot); ?>
+                            <?php echo $eusi["totalreservasi"] ?>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div class="logout">
+                <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px" href="../logout.php">Logout</a>
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->

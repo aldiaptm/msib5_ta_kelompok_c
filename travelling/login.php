@@ -12,13 +12,13 @@
     <title>Login - EDU TRAVEL</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="admin_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="admin_page/css/sb-admin-2.min.css" rel="stylesheet">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             <?php
@@ -80,14 +80,26 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="admin_page/vendor/jquery/jquery.min.js"></script>
+    <script src="admin_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="admin_pagevendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="admin_page/js/sb-admin-2.min.js"></script>
+
+    <script>
+        // Menambahkan timeout setelah 5 menit (300000 milidetik)
+        setTimeout(function () {
+            alert("Waktu login habis, silakan login kembali.");
+            window.location.href = "logout.php"; // Ganti dengan lokasi logout Anda
+        }, 60000); // 300000 milidetik = 5 menit
+    </script>
+
+</body>
+
+</html>
 
 </body>
 
