@@ -18,58 +18,42 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="admin-fix.php"> HOME </a>
+                <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="tables.php"> HOME </a>
                 <h1 style="margin-bottom:5px">Tambah Data Destinasi</h1>
                 <?php
-                include 'koneksi.php';
+                include '../koneksi.php';
                 ?>
                 <form style="margin-top: 20px" action="proses_tambah.php" method="post" enctype="multipart/form-data"
                     onsubmit="return validateForm();">
                     <div class="form-group">
-                        <label for="varian_kue">Nama:</label>
-                        <input type="text" class="form-control" id="nama_varian" name="nama_varian">
+                        <label for="nama_destinasi">Nama:</label>
+                        <input type="text" class="form-control" id="nama_destinasi" name="nama_destinasi">
                     </div>
                     <div class="form-group">
-                        <label for="gambar_kue">Gambar:</label>
-                        <input type="file" name="gambar_kue">
+                        <label for="gambar">Gambar:</label>
+                        <input type="file" name="gambar">
                     </div>
                     <div class="form-group">
-                        <label for="harga">Lokasi:</label>
+                        <label for="lokasi">Lokasi:</label>
+                        <input type="text" class="form-control" id="lokasi" name="lokasi">
+                    </div>
+                    <div class="form-group">
+                        <label for="harga">HTM:</label>
                         <input type="text" class="form-control" id="harga" name="harga">
                     </div>
                     <div class="form-group">
-                        <label for="deskripsi">HTM:</label>
+                        <label for="deskripsi">Deskripsi:</label>
                         <input type="text" class="form-control" id="deskripsi" name="deskripsi">
                     </div>
                     <div class="form-group">
-                        <label for="stok">Deskripsi:</label>
-                        <input type="text" class="form-control" id="stok" name="stok">
-                    </div>
-                    <div class="form-group">
-                        <label for="jenis_kue_id">Jenis Kue:</label>
-                        <select name="jenis_kue_id" id="jenis_kue_id">
+                        <label for="id_kategori">Kategori:</label>
+                        <select name="id_kategori" id="id_kategori">
                             <?php   
                             // Fetch data from the "items" table
-                            $query = mysqli_query($conn, "SELECT * FROM jenis_kue");
+                            $query = mysqli_query($koneksi, "SELECT * FROM kategori");
                             if (mysqli_num_rows($query) > 0) {
                                 while ($data = mysqli_fetch_array($query)) {
-                                    echo "<option value='" . $data["jenis_kue_id"] . "'>" . $data["nama_jenis"] . "</option>";
-                                }
-                            } else {
-                                echo "<option value=''>No items available</option>";
-                            }
-                            ?>
-                        </select><br>
-                    </div>
-                    <div class="form-group">
-                        <label for="supplier_id">Supplier:</label>
-                        <select name="supplier_id" id="supplier_id">
-                            <?php
-                            // Fetch data from the "items" table
-                            $query = mysqli_query($conn, "SELECT * FROM supplier");
-                            if (mysqli_num_rows($query) > 0) {
-                                while ($data = mysqli_fetch_array($query)) {
-                                    echo "<option value='" . $data["supplier_id"] . "'>" . $data["nama_supplier"] . "</option>";
+                                    echo "<option value='" . $data["id_kategori"] . "'>" . $data["nama_kategori"] . "</option>";
                                 }
                             } else {
                                 echo "<option value=''>No items available</option>";

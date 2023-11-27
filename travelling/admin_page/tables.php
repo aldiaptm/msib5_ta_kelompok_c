@@ -115,14 +115,14 @@
                                             <th>Lokasi</th>
                                             <th>HTM</th>
                                             <th>Deskripsi</th>
-                                            <th>Ulasan</th>
+                                            <th>Kategori</th>
                                             <th style="width: 30px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         require_once '../koneksi.php';
-                                        $sql = "SELECT * FROM destinasi";
+                                        $sql = "SELECT d.*,k.nama_kategori FROM destinasi AS d join kategori AS k ON d.id_kategori=k.id_kategori";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
@@ -142,7 +142,7 @@
                                                     <?= $data['deskripsi']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['ulasan']; ?>
+                                                    <?= $data['nama_kategori']; ?>
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <a href="edit.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"
