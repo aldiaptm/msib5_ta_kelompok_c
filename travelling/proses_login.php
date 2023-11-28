@@ -1,6 +1,11 @@
 <?php
 include 'koneksi.php';
 
+// Set sesi menjadi 5 menit (300 detik)
+$sesi_waktu_hidup = 600;
+session_set_cookie_params($sesi_waktu_hidup);
+session_start(); // Mulai session
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -10,12 +15,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = mysqli_fetch_assoc($query);
 
     if ($user) {
-        // Jika user ditemukan, redirect ke halaman admin
+        // Jika user ditemukan, set session dan redirect ke halaman admin
+        $_SESSION['username'] = $username;
+        $_SESSION['login_time'] = time(); // Catat waktu login
+
+        // Tambahan: Perbarui waktu hidup sesi setelah login
+        session_regenerate_id(true);
+
         header("location: admin_page/index.php");
+        exit(); // Pastikan untuk keluar setelah melakukan redirect
     } else {
         // Jika user tidak ditemukan, tampilkan pesan error
         $error_message = "Username atau password salah";
         header("location: login.php?error=$error_message");
+        exit(); // Pastikan untuk keluar setelah melakukan redirect
     }
+}
+
+// Tambahan: Perbarui waktu hidup sesi jika sesi masih aktif
+if (isset($_SESSION['username']) && (time() - $_SESSION['login_time'] > $sesi_waktu_hidup)) {
+    session_regenerate_id(true);
+    $_SESSION['login_time'] = time();
 }
 ?>

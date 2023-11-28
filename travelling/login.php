@@ -19,17 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="admin_page/css/sb-admin-2.min.css" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            <?php
-            // Mengecek apakah terdapat parameter error dari URL
-            if (isset($_GET['error'])) {
-                $error = $_GET['error'];
-                echo "alert('$error');";
-            }
-            ?>
-        });
-    </script>
 </head>
 
 <body class="bg-gradient-success">
@@ -88,14 +77,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="admin_page/js/sb-admin-2.min.js"></script>
-
-    <script>
-        // Menambahkan timeout setelah 5 menit (300000 milidetik)
-        setTimeout(function () {
-            alert("Waktu login habis, silakan login kembali.");
-            window.location.href = "logout.php"; // Ganti dengan lokasi logout Anda
-        }, 60000); // 300000 milidetik = 5 menit
-    </script>
 
 </body>
 

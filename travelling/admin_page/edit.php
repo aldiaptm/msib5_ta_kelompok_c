@@ -22,6 +22,16 @@
             }
         }
     </script>
+
+    <?php
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
+        header("location: ../login.php");
+        exit();
+    }
+    ?>
+
     <style>
         body {
             padding: 20px;

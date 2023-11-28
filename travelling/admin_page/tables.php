@@ -24,6 +24,26 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <?php
+    session_start();
+
+    // Periksa apakah sesi masih aktif atau sudah habis
+    $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
+    if (time() - $_SESSION['login_time'] > $sesi_waktu_hidup) {
+        // Jika sesi telah habis, hapus session dan beri pesan
+        session_unset();
+        session_destroy();
+        echo "<script>
+            if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
+            window.location.href='../login.php';
+            } else {
+            // Redirect atau lakukan tindakan tambahan jika pengguna memilih untuk tidak login lagi.
+                }
+            </script>";
+        exit();
+    }
+    ?>s
+
 </head>
 
 <body id="page-top">

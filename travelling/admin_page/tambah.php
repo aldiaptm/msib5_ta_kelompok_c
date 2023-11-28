@@ -6,12 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Kue</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <?php
+    session_start();
+
+    // Periksa apakah sesi masih aktif atau sudah habis
+    $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
+    if (time() - $_SESSION['login_time'] > $sesi_waktu_hidup) {
+        // Jika sesi telah habis, hapus session dan beri pesan
+        session_unset();
+        session_destroy();
+        echo "<script>
+            if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
+            window.location.href='../login.php';
+            } else {
+            // Redirect atau lakukan tindakan tambahan jika pengguna memilih untuk tidak login lagi.
+                }
+            </script>";
+        exit();
+    }
+    ?>
+
     <style>
         body {
             padding: 20px;
             background-color: lightcyan;
         }
     </style>
+
 </head>
 
 <body>
@@ -48,7 +70,7 @@
                     <div class="form-group">
                         <label for="id_kategori">Kategori:</label>
                         <select name="id_kategori" id="id_kategori">
-                            <?php   
+                            <?php
                             // Fetch data from the "items" table
                             $query = mysqli_query($koneksi, "SELECT * FROM kategori");
                             if (mysqli_num_rows($query) > 0) {
