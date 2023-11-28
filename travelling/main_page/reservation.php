@@ -111,9 +111,6 @@
     </div>
     <!-- Header End -->
 
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
     <!-- Reservasi Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
