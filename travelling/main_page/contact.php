@@ -76,7 +76,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.php" class="nav-item nav-link active">Home</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
                         <a href="service.php" class="nav-item nav-link">Services</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
@@ -88,7 +88,7 @@
                                 <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
-                        <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <a href="contact.php" class="nav-item nav-link active">Contact</a>
                     </div>
                 </div>
             </nav>
