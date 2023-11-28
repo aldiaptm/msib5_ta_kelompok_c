@@ -121,7 +121,7 @@
                 include '../koneksi.php';
                 ?>
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
-                <h2>Silahkan masukan kritik dan saran</h2>
+                <h2>Silahkan masukan kritik dan saran disini</h2>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
