@@ -25,7 +25,7 @@
     session_start();
 
     // Periksa apakah sesi masih aktif atau sudah habis
-    $sesi_waktu_hidup = 30; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
+    $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
     if (time() - $_SESSION['login_time'] > $sesi_waktu_hidup) {
         // Jika sesi telah habis, hapus session dan beri pesan
         session_unset();
