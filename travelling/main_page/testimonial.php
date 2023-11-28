@@ -84,7 +84,7 @@
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="category.php" class="dropdown-item">Category</a>
                                 <a href="developer.php" class="dropdown-item">Developer</a>
-                                <a href="testimonial.php" class="dropdown-item">Testimonial</a>
+                                <a href="testimonial.php" class="dropdown-item active">Testimonial</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
