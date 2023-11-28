@@ -2,7 +2,7 @@
 include 'koneksi.php';
 
 // Set sesi menjadi 5 menit (300 detik)
-$sesi_waktu_hidup = 600;
+$sesi_waktu_hidup = 60;
 session_set_cookie_params($sesi_waktu_hidup);
 session_start(); // Mulai session
 
@@ -26,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); // Pastikan untuk keluar setelah melakukan redirect
     } else {
         // Jika user tidak ditemukan, tampilkan pesan error
-        $error_message = "Username atau password salah";
-        header("location: login.php?error=$error_message");
+        echo "<script>alert('Username atau Password salah.'); window.location.href='login.php';</script>";
         exit(); // Pastikan untuk keluar setelah melakukan redirect
     }
 }

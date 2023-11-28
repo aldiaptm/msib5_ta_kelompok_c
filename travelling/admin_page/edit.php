@@ -74,7 +74,7 @@
                     $update_query = "UPDATE destinasi SET nama_destinasi='$nama_destinasi', lokasi='$lokasi', harga='$harga', deskripsi='$deskripsi' WHERE id_destinasi = $id_destinasi";
                     $update_result = mysqli_query($koneksi, $update_query);
 
-                    header("Location:tables.php");
+                    echo "<script>alert('Data berhasil diubah.'); window.location.href='tables.php';</script>";
                 }
                 ?>
 

@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <label for="gambar">Gambar:</label>
-                        <input type="file" name="gambar">
+                        <input type="file" id="gambar" name="gambar">
                     </div>
                     <div class="form-group">
                         <label for="lokasi">Lokasi:</label>

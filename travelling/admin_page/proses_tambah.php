@@ -3,7 +3,7 @@ include '../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_destinasi = $_POST['nama_destinasi'];
-    $gambar = $_POST['gambar'];
+    $gambar = $_FILES["gambar"]["name"];
     $lokasi = $_POST['lokasi'];
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $result = mysqli_query($koneksi, "INSERT INTO destinasi (nama_destinasi, gambar, lokasi, harga, deskripsi, id_kategori) VALUES ('$nama_destinasi', '$target_file', '$lokasi', '$harga', '$deskripsi', '$id_kategori')");
+
+    echo "<script>alert('Data berhasil ditambahkan.'); window.location.href='tables.php';</script>";
 }
-header("Location:tables.php");
 ?>
