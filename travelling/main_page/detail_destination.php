@@ -40,19 +40,19 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="https://www.facebook.com">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="https://www.twitter.com">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="https://www.linkedin.com">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a class="text-primary px-3" href="">
+                        <a class="text-primary px-3" href="https://www.instagram.com">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-primary pl-3" href="">
+                        <a class="text-primary pl-3" href="https://www.youtube.com">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="service.php" class="nav-item nav-link">Services</a>
+                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link active">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -165,9 +165,9 @@
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <!-- Fasilitas Destination -->
                     <div class="d-flex flex-column bg-white mb-5 py-5 px-4">
-                        <h3 class="text-primary text-center mb-3">Fasilitas</h3>
+                        <h3 class="text-center mb-3">Fasilitas</h3>
                         <div class="bg-white" >
-                            <p class="text-primary">Tipe :</p>
+                            <p class="text-primary">Tipe Fasilitas :</p>
                             <p><?php echo $tipe?></p>
                             <p class="text-primary">Deskripsi Fasilitas :</p>
                             <p><?php echo $keterangan ?></p>
@@ -202,7 +202,7 @@
                         <div class="d-flex flex-wrap m-n1">
                             <a href="index.php" class="btn btn-light m-1">Home</a>
                             <a href="about.php" class="btn btn-light m-1">About</a>
-                            <a href="service.php" class="btn btn-light m-1">Services</a>
+                            <a href="reservation.php" class="btn btn-light m-1">Reservation</a>
                             <a href="category.php" class="btn btn-light m-1">Category</a>
                             <a href="destination.php" class="btn btn-light m-1">Destination</a>
                             <a href="develover.php" class="btn btn-light m-1">Develover</a>
@@ -221,11 +221,11 @@
                         ?>
                         <form action="proses_tambah_ulasan.php" method="post" onsubmit="return validateForm()">
                             <div class="form-group">
-                                <label for="nama">Nama <span style="color:red">*</span></label>
+                                <label for="nama" class="text-primary">Nama <span style="color:red">*</span></label>
                                 <input type="text" class="form-control" name="nama" id="nama">
                             </div>
                             <div class="form-group">
-                                <label for="pesan">Pesan <span style="color:red">*</span></label>
+                                <label for="pesan" class="text-primary">Pesan <span style="color:red">*</span></label>
                                 <textarea id="pesan" cols="30" rows="5" name="pesan" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
@@ -251,10 +251,10 @@
                 <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
@@ -262,10 +262,11 @@
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
                     <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
                     <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
@@ -273,37 +274,29 @@
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
                     <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
                     <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
-                <div class="w-100">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary px-3">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Indonesia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+622 540 12</p>
+                <p><i class="fa fa-envelope mr-2"></i>edutravel@gmail.com</p>
             </div>
         </div>
     </div>
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; <a href="#">Domain</a>. All Rights Reserved.</a>
+                <p class="m-0 text-white-50">Copyright &copy; <a href="index.php">Edu-Travel</a>.
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50">Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                <p class="m-0 text-white-50">Designed by <a href="developer.php">Developer</a>
                 </p>
             </div>
         </div>

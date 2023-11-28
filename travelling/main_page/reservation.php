@@ -77,13 +77,13 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
+                        <a href="reservation.php" class="nav-item nav-link active">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="category.php" class="dropdown-item">Category</a>
-                                <a href="developer.php" class="dropdown-item">Developer</a>
+                                <a href="develover.php" class="dropdown-item">Develover</a>
                                 <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
@@ -100,63 +100,114 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Destinasi</h3>
+                <h3 class="display-4 text-white text-uppercase">Reservasi</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="index.php">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase"><a class="text-white" href="category.php">Category</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Destination Detail</p>
+                    <p class="m-0 text-uppercase">Reservation</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-    <!-- Destination Start -->
+    <!-- Reservasi Start -->
     <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
+        <div class="container py-5">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Destinasi Wisata Terkait</h1>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Reservation</h6>
+                <h1>Reservasi Destinasi Wisata</h1>
             </div>
-            <div class="row">
-                <?php
-                    include '../koneksi.php';
-
-                    $id_terima = $_GET['id_kategori'];
-                    $query = mysqli_query($koneksi, "SELECT * FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where d.id_kategori=$id_terima;");
-
-                    if(mysqli_num_rows($query)>0){
-                    while($data = mysqli_fetch_array($query)){
-                ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i><?php echo $data["nama_kategori"] ?></small>
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $data["lokasi"] ?></small>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        <div id="success"></div>
+                        <?php
+                            include '../koneksi.php';
+                        ?>
+                        <form action="proses_tambah_reservasi.php" method="post" onsubmit="return validateForm()">
+                            <div class="mb-4">
+                                <label for="nama" class="form-label text-primary">Nama Pengunjung <span style="color:red">*</span></label>
+                                <select class="form-control" name="nama" id="nama">
+                                    <option value="">-- Pilih nama Anda --</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($koneksi, "SELECT *, r.id_customer as customer_id FROM `reservasi` as r JOIN `customer` as c ON r.id_customer=c.id_customer GROUP BY customer_id");
+                                        if(mysqli_num_rows($query)>0){
+                                            while($data = mysqli_fetch_array($query)){
+                                                echo "<option value='" . $data["customer_id"] . "'>" . $data["nama"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                </select>
                             </div>
-                            <a class="h5 text-decoration-none" href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"><?php echo $data["nama_destinasi"] ?></a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
-                                    <h5 class="m-0"><?php echo "Rp. " . number_format($data["harga"],0,',','.') ?></h5>
-                                </div>
+                            <div class="mb-4">
+                                <label for="destinasi" class="form-label text-primary">Nama Destinasi Wisata <span style="color:red">*</span></label>
+                                <select class="form-control" name="destinasi" id="destinasi">
+                                    <option value="">-- Pilih nama destinasi --</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($koneksi, "SELECT *, r.id_destinasi as destinasi_id FROM `reservasi` as r JOIN `destinasi` as d ON r.id_destinasi=d.id_destinasi");
+                                        if(mysqli_num_rows($query)>0){
+                                            while($data = mysqli_fetch_array($query)){
+                                                echo "<option value='" . $data["destinasi_id"] . "'>" . $data["nama_destinasi"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                </select>
                             </div>
-                        </div>
+                            <div class="mb-4">
+                                <label for="fasilitas" class="form-label text-primary">Tipe Fasilitas <span style="color:red">*</span></label>
+                                <select class="form-control" name="fasilitas" id="fasilitas">
+                                    <option value="">-- Pilih tipe fasilitas --</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($koneksi, "SELECT *, r.id_fasilitas as fasilitas_id FROM `reservasi` as r JOIN `fasilitas` as f ON r.id_fasilitas=f.id_fasilitas GROUP BY fasilitas_id;");
+                                        if(mysqli_num_rows($query)>0){
+                                            while($data = mysqli_fetch_array($query)){
+                                                echo "<option value='" . $data["fasilitas_id"] . "'>" . $data["tipe"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="pembayaran" class="form-label text-primary">Metode Pembayaran <span style="color:red">*</span></label>
+                                <select class="form-control" name="pembayaran" id="pembayaran">
+                                    <option value="">-- Pilih metode pembayaran --</option>
+                                        <?php
+                                        // Fetch data from the "items" table
+                                        $query = mysqli_query($koneksi, "SELECT *, r.id_pembayaran as pembayaran_id FROM `reservasi` as r JOIN `pembayaran` as p ON r.id_pembayaran=p.id_pembayaran GROUP BY pembayaran_id;");
+                                        if(mysqli_num_rows($query)>0){
+                                            while($data = mysqli_fetch_array($query)){
+                                                echo "<option value='" . $data["pembayaran_id"] . "'>" . $data["metode"] . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No items available</option>";
+                                        }
+                                        ?>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" name="Submit" value="Pesan" class="btn btn-primary">
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <?php } ?>
-                <?php } ?>
             </div>
         </div>
     </div>
-    <!-- Destination End -->
+    <!-- Reservasi End -->
 
-    
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
@@ -176,7 +227,7 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
+                <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -240,5 +291,21 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
+<!-- Validasi menggunakan javascript-->
+<script>
+    function validateForm(){
+        var nama = document.getElementById('nama').value;
+        var destinasi = document.getElementById('destinasi').value;
+        var fasilitas = document.getElementById('fasilitas').value;
+        var pembayaran = document.getElementById('pembayaran').value;
+
+        if(nama == "" || destinasi == "" || fasilitas == "" || pembayaran == ""){
+            alert('Silahkan isi data dengan lengkap!');
+            return false;
+        }
+        return true;
+    }
+</script>
 
 </html>
