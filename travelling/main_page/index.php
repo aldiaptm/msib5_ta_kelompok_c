@@ -76,7 +76,7 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link active">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="service.php" class="nav-item nav-link">Services</a>
+                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -104,7 +104,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
+                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Jelajahi Tempat Wisata Bersama Kami</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
+                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -460,7 +460,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Service</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -475,7 +475,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Service</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>

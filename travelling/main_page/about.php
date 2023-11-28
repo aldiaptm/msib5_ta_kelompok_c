@@ -77,7 +77,7 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link active">About</a>
-                        <a href="service.php" class="nav-item nav-link">Services</a>
+                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -212,7 +212,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Service</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -227,7 +227,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="service.php"><i class="fa fa-angle-right mr-2"></i>Service</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
