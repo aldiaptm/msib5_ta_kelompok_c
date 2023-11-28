@@ -226,22 +226,22 @@
                 if (mysqli_num_rows($query) > 0) {
                     while ($data = mysqli_fetch_array($query)) {
                         ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="destination-item position-relative overflow-hidden mb-2">
-                                <img class="img-fluid" src="<?php echo $data["gambar_kategori"] ?>"
-                                    style="width:500px; height: 180px;">
-                                <a class="destination-overlay text-white text-decoration-none"
-                                    href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>">
-                                    <h5 class="text-white"></i>
-                                        <?php echo $data["nama_kategori"] ?>
-                                    </h5>
-                                    <span>
-                                        <?php echo $data["jumlah"] ?> destinasi
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    <?php } ?>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="destination-item position-relative overflow-hidden mb-2">
+                                        <img class="img-fluid" src="<?php echo $data["gambar_kategori"] ?>"
+                                            style="width:500px; height: 180px;">
+                                        <a class="destination-overlay text-white text-decoration-none"
+                                            href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>">
+                                            <h5 class="text-white"></i>
+                                                <?php echo $data["nama_kategori"] ?>
+                                            </h5>
+                                            <span>
+                                                <?php echo $data["jumlah"] ?> destinasi
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                        <?php } ?>
                 <?php } ?>
             </div>
         </div>
@@ -264,34 +264,34 @@
                 if (mysqli_num_rows($query) > 0) {
                     while ($data = mysqli_fetch_array($query)) {
                         ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="package-item bg-white mb-2">
-                                <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
-                                <div class="p-4">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i>
-                                            <?php echo $data["nama_kategori"] ?>
-                                        </small>
-                                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>
-                                            <?php echo $data["lokasi"] ?>
-                                        </small>
-                                    </div>
-                                    <a class="h5 text-decoration-none"
-                                        href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>">
-                                        <?php echo $data["nama_destinasi"] ?>
-                                    </a>
-                                    <div class="border-top mt-4 pt-4">
-                                        <div class="d-flex justify-content-between">
-                                            <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
-                                            <h5 class="m-0">
-                                                <?php echo "Rp. " . number_format($data["harga"], 0, ',', '.') ?>
-                                            </h5>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="package-item bg-white mb-2">
+                                        <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
+                                        <div class="p-4">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i>
+                                                    <?php echo $data["nama_kategori"] ?>
+                                                </small>
+                                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                                    <?php echo $data["lokasi"] ?>
+                                                </small>
+                                            </div>
+                                            <a class="h5 text-decoration-none"
+                                                href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>">
+                                                <?php echo $data["nama_destinasi"] ?>
+                                            </a>
+                                            <div class="border-top mt-4 pt-4">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
+                                                    <h5 class="m-0">
+                                                        <?php echo "Rp. " . number_format($data["harga"], 0, ',', '.') ?>
+                                                    </h5>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
                 <?php } ?>
             </div>
         </div>
@@ -411,23 +411,23 @@
                 if (mysqli_num_rows($query) > 0) {
                     while ($data = mysqli_fetch_array($query)) {
                         ?>
-                        <div class="text-center">
-                            <div class="testimonial-text bg-white p-4 mt-n5">
-                                <p class="mt-5">
-                                    <?php echo $data["pesan"]
-                                        ?>
-                                </p>
-                                <h5 class="text-truncate">
-                                    <?php echo $data["nama"]
-                                        ?>
-                                </h5>
-                                <span>
-                                    <?php echo $data["tanggal_ulasan"]
-                                        ?>
-                                </span>
-                            </div>
-                        </div>
-                        <?php
+                                <div class="text-center">
+                                    <div class="testimonial-text bg-white p-4 mt-n5">
+                                        <p class="mt-5">
+                                            <?php echo $data["pesan"]
+                                                ?>
+                                        </p>
+                                        <h5 class="text-truncate">
+                                            <?php echo $data["nama"]
+                                                ?>
+                                        </h5>
+                                        <span>
+                                            <?php echo $data["tanggal_ulasan"]
+                                                ?>
+                                        </span>
+                                    </div>
+                                </div>
+                                <?php
                     }
                 } ?>
             </div>
