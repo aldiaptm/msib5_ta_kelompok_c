@@ -80,9 +80,9 @@
                         <a href="reservation.php" class="nav-item nav-link">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="category.php" class="dropdown-item">Category</a>
+                                <a href="category.php" class="dropdown-item active">Category</a>
                                 <a href="developer.php" class="dropdown-item">Developer</a>
                                 <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                             </div>
