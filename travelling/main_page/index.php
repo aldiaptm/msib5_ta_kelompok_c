@@ -157,7 +157,7 @@
                                 <img class="img-fluid" src="img/klnr.jpeg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
+                        <a href="reservation.php" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
