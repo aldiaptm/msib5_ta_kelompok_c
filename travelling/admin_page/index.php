@@ -243,7 +243,7 @@
                                     Pesan Masuk
                                 </h5>
                                 <?php
-                                $query = mysqli_query($koneksi, "SELECT * FROM contact;");
+                                $query = mysqli_query($koneksi, "SELECT * FROM contact ORDER BY id_contact DESC;");
                                 ?>
                                 <?php
                                 if (mysqli_num_rows($query) > 0) {
