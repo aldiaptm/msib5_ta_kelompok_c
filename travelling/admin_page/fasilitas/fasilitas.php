@@ -71,7 +71,7 @@
             <!-- Sidebar - Brand -->
             <br>
             <a class="sidebar-brand d-flex align-items-center" href="../index.php">
-                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
+                <img src="../img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
             <br>
