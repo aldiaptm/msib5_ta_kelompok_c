@@ -26,7 +26,7 @@
 
     // Periksa apakah sesi masih aktif atau sudah habis
     $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
-    if(isset($_SESSION['login_time'])){
+    if (isset($_SESSION['login_time'])) {
         if ((time() - $_SESSION['login_time']) > $sesi_waktu_hidup) {
             // Jika sesi telah habis, hapus session dan beri pesan
             echo "masuk";
@@ -41,7 +41,7 @@
                 </script>";
             exit();
         }
-    }else{
+    } else {
         echo "<script>
         if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
             window.location.href='../login.php';
@@ -90,6 +90,12 @@
 </head>
 
 <body id="page-top">
+    <?php
+    include '../koneksi.php';
+    ?>
+    <?php
+    $query = mysqli_query($koneksi, "SELECT * FROM admin;");
+    $data = mysqli_fetch_array($query); ?>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -101,8 +107,10 @@
             <!-- Sidebar - Brand -->
             <br>
             <a class="sidebar-brand d-flex align-items-center" href="index.php">
-                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
-                <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
+                <img src="<?php echo $data["profile"] ?>" style="width: 60px; border-radius: 50%; margin-right: 20px;">
+                <div class="sidebar-brand-text">
+                    <?php echo $data["nama_admin"] ?>
+                </div>
             </a>
             <br>
 
@@ -150,20 +158,128 @@
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div class="container">
 
             <!-- Main Content -->
             <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">
+                                    <?php
+                                    $query = mysqli_query($koneksi, "SELECT COUNT(id_contact) AS totalcontact FROM contact;");
+                                    $data = mysqli_fetch_array($query); ?>
+                                    <?php echo $data["totalcontact"] ?>
+                                </span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown" style="width:">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <?php
+                                $query = mysqli_query($koneksi, "SELECT * FROM contact;");
+                                ?>
+                                <?php
+                                if (mysqli_num_rows($query) > 0) {
+                                    while ($data = mysqli_fetch_array($query)) {
+                                        ?>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate">
+                                                    <?php echo $data["pesan"] ?>
+                                                </div>
+                                                <div class="text-truncate">
+                                                    <i>
+                                                        <?php echo $data["nama_contact"] ?>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <?php }
+                                } ?>
+                                <center>
+                                    <a class="btn btn-danger mt-3 mb-3"
+                                        style="width: 50px; height: 20px; font-size: 8px; padding: 5px;"
+                                        href="hapus_pesan.php">Hapus</a>
+                                </center>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <?php
+                            $query = mysqli_query($koneksi, "SELECT * FROM admin;");
+                            $data = mysqli_fetch_array($query);
+                            ?>
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?php echo $data["nama_admin"] ?>
+                                </span>
+                                <img class="img-profile rounded-circle" src="<?php echo $data["profile"] ?>">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="../logout.php" style="font-size: 12px; color: green;">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
                 <h1>
                     SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL
                 </h1>
             </div>
-
-            <?php
-            include '../koneksi.php';
-            ?>
             <table class="table table-bordered" style="">
                 <thead>
                     <tr>
@@ -203,9 +319,6 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="logout">
-                <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px" href="../logout.php">Logout</a>
-            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
