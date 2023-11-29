@@ -30,7 +30,7 @@
 
     // Periksa apakah sesi masih aktif atau sudah habis
     $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
-    if(isset($_SESSION['login_time'])){
+    if (isset($_SESSION['login_time'])) {
         if ((time() - $_SESSION['login_time']) > $sesi_waktu_hidup) {
             // Jika sesi telah habis, hapus session dan beri pesan
             echo "masuk";
@@ -45,7 +45,7 @@
                 </script>";
             exit();
         }
-    }else{
+    } else {
         echo "<script>
         if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
             window.location.href='../../login.php';
@@ -199,7 +199,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Edu-Travel</span>
                     </div>
                 </div>
             </footer>
