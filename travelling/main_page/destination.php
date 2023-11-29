@@ -123,7 +123,7 @@
             <div class="row">
                 <?php
                     include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where id_destinasi=id_destinasi;");
+                    $query = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where id_destinasi=id_destinasi ORDER BY id_destinasi ASC");
                 ?>
                 <?php 
                     if(mysqli_num_rows($query)>0){
