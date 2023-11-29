@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 06:46 AM
+-- Generation Time: Nov 29, 2023 at 04:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id_admin` int(11) NOT NULL,
+  `nama_admin` varchar(25) NOT NULL,
+  `profile` varchar(255) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -37,8 +39,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `profile`, `username`, `password`) VALUES
+(1, 'Admin EDU-TRAVEL', 'img/adminprofile.png', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -59,9 +61,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal_contact`) VALUES
-(4, '', '', '', '2023-11-27 10:44:49'),
-(5, '', '', '', '2023-11-27 04:46:30'),
-(6, '', '', '', '2023-11-27 04:48:14');
+(13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02');
 
 -- --------------------------------------------------------
 
@@ -282,13 +282,13 @@ ALTER TABLE `ulasan`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `customer`
