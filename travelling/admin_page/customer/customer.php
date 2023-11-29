@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Data Customer</title>
+    <link rel="icon" type="image/x-icon" href="../img/logo-title.png">
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

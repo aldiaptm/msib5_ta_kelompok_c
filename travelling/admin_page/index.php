@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>EDU - TRAVEL</title>
+    <link rel="icon" type="image/x-icon" href="img/logo-title.png">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -82,6 +83,12 @@
             margin-bottom: 50px;
         }
 
+        h5 {
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 10px !important;
+            font-weight: normal !important;
+        }
+
         .logout {
             margin-top: 150px;
         }
@@ -89,6 +96,19 @@
         .table {
             border: 0px;
         }
+
+        body {
+            background-image: url("img/bgbody.jpg");
+        }
+
+        .badge {
+            background-color: red;
+        }
+
+        /* 
+        .navbar {
+            background-color: transparent !important;
+        } */
     </style>
 
 </head>
@@ -218,10 +238,10 @@
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown" style="width:">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
+                                aria-labelledby="messagesDropdown">
+                                <h5 class="dropdown-header">
+                                    Pesan Masuk
+                                </h5>
                                 <?php
                                 $query = mysqli_query($koneksi, "SELECT * FROM contact;");
                                 ?>
@@ -236,7 +256,7 @@
                                                 </div>
                                                 <div class="text">
                                                     <i>
-                                                        <?php echo $data["nama_contact"] ?>
+                                                        - <?php echo $data["nama_contact"] ?>
                                                     </i>
                                                 </div>
                                             </div>
@@ -245,8 +265,8 @@
                                 } ?>
                                 <center>
                                     <a class="btn btn-danger mt-3 mb-3"
-                                        style="width: 50px; height: 20px; font-size: 8px; padding: 5px;"
-                                        href="hapus_pesan.php">Hapus</a>
+                                        style="width: 30px; height: 20px; font-size: 8px; padding: 5px;"
+                                        href="hapus_pesan.php"><span class="glyphicon glyphicon-trash"></span></a>
                                 </center>
                             </div>
                         </li>
@@ -291,15 +311,20 @@
                     $query = mysqli_query($koneksi, "SELECT COUNT(id_destinasi) AS totaldestinasi FROM destinasi;");
                     $data = mysqli_fetch_array($query); ?>
                     <a href="tables.php" style="text-decoration: none; font-weight: bold;">Jumlah Destinasi</a><br><br>
-                    <b style="font-size: 18px;"><?php echo $data["totaldestinasi"] ?></b>
+                    <b style="font-size: 18px;">
+                        <?php echo $data["totaldestinasi"] ?>
+                    </b>
                 </div>
                 <div class="col-6">
                     <a class="fas fa-fw fa-file" href="fasilitas/fasilitas.php"></a><br>
                     <?php
                     $query = mysqli_query($koneksi, "SELECT COUNT(id_fasilitas) AS totalfasilitas FROM fasilitas;");
                     $data = mysqli_fetch_array($query); ?>
-                    <a href="fasilitas/fasilitas.php" style="text-decoration: none; font-weight: bold;">Jumlah Fasilitas</a><br><br>
-                    <b style="font-size: 18px;"><?php echo $data["totalfasilitas"] ?></b>
+                    <a href="fasilitas/fasilitas.php" style="text-decoration: none; font-weight: bold;">Jumlah
+                        Fasilitas</a><br><br>
+                    <b style="font-size: 18px;">
+                        <?php echo $data["totalfasilitas"] ?>
+                    </b>
                 </div>
             </div>
             <br><br><br>
@@ -309,16 +334,22 @@
                     <?php
                     $query = mysqli_query($koneksi, "SELECT COUNT(id_customer) AS totalcustomer FROM customer;");
                     $data = mysqli_fetch_array($query); ?>
-                    <a href="customer/customer.php" style="text-decoration: none; font-weight: bold;">Jumlah Customer</a><br><br>
-                    <b style="font-size: 18px;"><?php echo $data["totalcustomer"] ?></b>
+                    <a href="customer/customer.php" style="text-decoration: none; font-weight: bold;">Jumlah
+                        Customer</a><br><br>
+                    <b style="font-size: 18px;">
+                        <?php echo $data["totalcustomer"] ?>
+                    </b>
                 </div>
                 <div class="col-6">
                     <a class="fas fa-fw fa-address-book" href="reservasi/reservasi.php"></a><br>
                     <?php
                     $query = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
                     $data = mysqli_fetch_array($query); ?>
-                    <a href="reservasi/reservasi.php" style="text-decoration: none; font-weight: bold;">Jumlah Reservasi</a><br><br>
-                    <b style="font-size: 18px;"><?php echo $data["totalreservasi"] ?></b>
+                    <a href="reservasi/reservasi.php" style="text-decoration: none; font-weight: bold;">Jumlah
+                        Reservasi</a><br><br>
+                    <b style="font-size: 18px;">
+                        <?php echo $data["totalreservasi"] ?>
+                    </b>
                 </div>
             </div>
             <!-- End of Main Content -->
