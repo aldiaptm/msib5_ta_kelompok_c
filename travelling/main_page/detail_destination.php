@@ -121,7 +121,7 @@
                 <?php
                     include '../koneksi.php';
                     $id_terima = $_GET['id_destinasi'];
-                    $destinasi = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori JOIN `reservasi` as r ON d.id_destinasi=r.id_destinasi JOIN `fasilitas` as f ON r.id_fasilitas=f.id_fasilitas where d.id_destinasi=$id_terima;");
+                    $destinasi = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where d.id_destinasi=$id_terima;");
                 
                     if(mysqli_num_rows($destinasi)>0){
                         while($d = mysqli_fetch_array($destinasi)){
@@ -133,8 +133,6 @@
                             $harga = $d["harga"];
                             $nama_destinasi = $d["nama_destinasi"];
                             $deskripsi = $d["deskripsi"];
-                            $tipe = $d["tipe"];
-                            $keterangan = $d["keterangan"];
                         }
                     }
                 ?>
@@ -151,29 +149,64 @@
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
                             <div class="d-flex justify-content-between mb-3">
-                                <div class="text-primary text-uppercase text-decoration-none"><i class="fas fa-tag text-primary mr-2"></i><?php echo $nama_kategori?></div>
-                                <div class="text-primary text-uppercase text-decoration-none"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $lokasi?></div>
-                                <div class="text-primary text-uppercase text-decoration-none"><i class="fas text-primary mr-2">HTM : </i><?php echo "Rp. " . number_format($harga,0,',','.')?></div>
+                                <div class="text-primary text-decoration-none"><i class="fas fa-tag text-primary mr-2"></i><?php echo $nama_kategori?></div>
+                                <div class="text-primary  text-decoration-none"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $lokasi?></div>
+                                <div class="text-primary text-decoration-none"><i class="fas text-primary mr-2">HTM : </i><?php echo "Rp. " . number_format($harga,0,',','.')?></div>
                             </div>
                             <h2 class="mb-3"><?php echo $nama_destinasi?></h2>
                             <p><?php echo $deskripsi?></p>
                         </div>
                     </div>
                     <!-- Destination Detail End -->
+
+                    <!-- Fasilitas Destination Start -->
+                    <div class="d-flex flex-column bg-white mb-5 py-5 px-4">
+                        <h4 class="text-uppercase mb-3" style="letter-spacing: 5px;">Fasilitas Yang Tersedia</h4>
+                        <div class="bg-white" >
+                            <?php
+                                include '../koneksi.php';
+                                $no = 1;
+                                $query = mysqli_query($koneksi, "SELECT * FROM `fasilitas` where id_fasilitas=id_fasilitas;");
+                            ?>
+                            <?php 
+                                if(mysqli_num_rows($query)>0){
+                                while($data = mysqli_fetch_array($query)){
+                            ?>
+                            <p class="text-primary">Tipe Fasilitas <?php echo $no ?> :</p>
+                            <p><?php echo $data["tipe"] ?></p>
+                            <p class="text-primary">Deskripsi Fasilitas :</p>
+                            <p><?php echo $data["keterangan"] ?></p> <br>
+                            <?php $no++; } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- Fasilitas Destination End -->
+
+                    <!-- Comment Form Start -->
+                    <div class="bg-white mb-3" style="padding: 30px;">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Berikan Ulasan</h4>
+                        <?php
+                            include '../koneksi.php';
+                        ?>
+                        <form action="proses_tambah_ulasan.php" method="post" onsubmit="return validateForm()">
+                            <div class="form-group">
+                                <label for="nama" class="text-primary">Nama <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="nama" id="nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="pesan" class="text-primary">Komentar <span style="color:red">*</span></label>
+                                <textarea id="pesan" cols="30" rows="5" name="pesan" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="submit" value="Simpan" name="submit"
+                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Comment Form End -->
                 </div>
     
                 <div class="col-lg-4 mt-5 mt-lg-0">
-                    <!-- Fasilitas Destination -->
-                    <div class="d-flex flex-column bg-white mb-5 py-5 px-4">
-                        <h3 class="text-center mb-3">Fasilitas</h3>
-                        <div class="bg-white" >
-                            <p class="text-primary">Tipe Fasilitas :</p>
-                            <p><?php echo $tipe?></p>
-                            <p class="text-primary">Deskripsi Fasilitas :</p>
-                            <p><?php echo $keterangan ?></p>
-                        </div>
-                    </div>
-
                     <!-- Category List -->
                     <div class="mb-5">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Kategori</h4>
@@ -195,6 +228,7 @@
                             <?php } ?>
                         </div>
                     </div>
+                    <!-- Category List End -->
     
                     <!-- Tag Cloud -->
                     <div class="mb-5">
@@ -210,31 +244,7 @@
                             <a href="contact.php" class="btn btn-light m-1">Contact</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-8">       
-                    <!-- Comment Form Start -->
-                    <div class="bg-white mb-3" style="padding: 30px;">
-                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Berikan Ulasan</h4>
-                        <?php
-                            include '../koneksi.php';
-                        ?>
-                        <form action="proses_tambah_ulasan.php" method="post" onsubmit="return validateForm()">
-                            <div class="form-group">
-                                <label for="nama" class="text-primary">Nama <span style="color:red">*</span></label>
-                                <input type="text" class="form-control" name="nama" id="nama">
-                            </div>
-                            <div class="form-group">
-                                <label for="pesan" class="text-primary">Pesan <span style="color:red">*</span></label>
-                                <textarea id="pesan" cols="30" rows="5" name="pesan" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="submit" value="Simpan" name="submit"
-                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Comment Form End -->
+                    <!-- Category List End -->
                 </div>
             </div>
         </div>
