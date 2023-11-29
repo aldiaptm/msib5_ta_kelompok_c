@@ -149,7 +149,7 @@
                                     <option value="">-- Pilih nama destinasi --</option>
                                         <?php
                                         // Fetch data from the "items" table
-                                        $query = mysqli_query($koneksi, "SELECT *, r.id_destinasi as destinasi_id FROM `reservasi` as r JOIN `destinasi` as d ON r.id_destinasi=d.id_destinasi");
+                                        $query = mysqli_query($koneksi, "SELECT *, r.id_destinasi as destinasi_id FROM `reservasi` as r JOIN `destinasi` as d ON r.id_destinasi=d.id_destinasi GROUP BY d.id_destinasi");
                                         if(mysqli_num_rows($query)>0){
                                             while($data = mysqli_fetch_array($query)){
                                                 echo "<option value='" . $data["destinasi_id"] . "'>" . $data["nama_destinasi"] . "</option>";
