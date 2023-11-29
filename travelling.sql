@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 04:30 AM
+-- Generation Time: Nov 29, 2023 at 07:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -61,7 +61,8 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal_contact`) VALUES
-(13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02');
+(13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02'),
+(14, 'Ucup', 'Keluhan', 'Tidak dapat registrasi karena tidak ada halaman registrasi:(', '2023-11-29 11:30:41');
 
 -- --------------------------------------------------------
 
@@ -81,8 +82,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_customer`, `nama`, `email`, `telepon`) VALUES
-(1, 'tono', 'tono@gmail.com', '089742214221'),
-(2, 'tini', 'tini@gmail.com', '089741241241');
+(1, 'Tono Topan', 'tono@gmail.com', '089742214221'),
+(2, 'Tini Tita', 'tini@gmail.com', '089741241241');
 
 -- --------------------------------------------------------
 
@@ -148,9 +149,9 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
-(1, 'Wisata Alam', 'img/wa.jpeg'),
-(2, 'Wisata Kuliner', 'img/gd.jpeg'),
-(3, 'Wisata Pantai', 'img/krj.jpeg');
+(1, 'Wisata Alam', '../img/wa.jpeg'),
+(2, 'Wisata Kuliner', '../img/gd.jpeg'),
+(3, 'Wisata Pantai', '../img/krj.jpeg');
 
 -- --------------------------------------------------------
 
@@ -163,6 +164,16 @@ CREATE TABLE `pembayaran` (
   `metode` varchar(25) NOT NULL,
   `biaya_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `metode`, `biaya_admin`) VALUES
+(1, 'DANA', 2000),
+(2, 'OVO', 1500),
+(3, 'BCA', 1000),
+(4, 'Mandiri', 1000);
 
 -- --------------------------------------------------------
 
@@ -184,10 +195,7 @@ CREATE TABLE `reservasi` (
 --
 
 INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id_destinasi`, `id_fasilitas`, `id_pembayaran`) VALUES
-(1, 1, '2023-11-24 05:33:18', 1, 1, 0),
-(2, 2, '2023-11-24 07:53:45', 2, 2, 0),
-(3, 2, '2023-11-24 08:01:04', 3, 3, 0),
-(4, 1, '2023-11-24 08:02:09', 4, 3, 0);
+(5, 2, '2023-11-29 07:06:26', 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -288,13 +296,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `destinasi`
@@ -306,7 +314,7 @@ ALTER TABLE `destinasi`
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -318,13 +326,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ulasan`
@@ -343,18 +351,13 @@ ALTER TABLE `destinasi`
   ADD CONSTRAINT `destinasi_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 
 --
--- Constraints for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_pembayaran`) REFERENCES `reservasi` (`id_pembayaran`);
-
---
 -- Constraints for table `reservasi`
 --
 ALTER TABLE `reservasi`
   ADD CONSTRAINT `reservasi_ibfk_1` FOREIGN KEY (`id_fasilitas`) REFERENCES `fasilitas` (`id_fasilitas`),
   ADD CONSTRAINT `reservasi_ibfk_2` FOREIGN KEY (`id_destinasi`) REFERENCES `destinasi` (`id_destinasi`),
-  ADD CONSTRAINT `reservasi_ibfk_3` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`);
+  ADD CONSTRAINT `reservasi_ibfk_3` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`),
+  ADD CONSTRAINT `reservasi_ibfk_4` FOREIGN KEY (`id_pembayaran`) REFERENCES `pembayaran` (`id_pembayaran`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

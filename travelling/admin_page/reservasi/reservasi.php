@@ -136,29 +136,39 @@
                             <div class="table-responsive">
                                 <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
                                     href="../index.php">Home</a>
-                                <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px"
-                                    href="tambah.php">Tambah Data</a>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>ID Cutsomer</th>
+                                            <th>Cutsomer</th>
                                             <th>Tanggal Reservasi</th>
+                                            <th>Destinasi</th>
+                                            <th>Fasilitas</th>
+                                            <th>Pembayaran</th>
                                             <th style="width: 80px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         require_once '../../koneksi.php';
-                                        $sql = "SELECT * FROM reservasi";
+                                        $sql = "SELECT r.id_reservasi, r.reservasi_tanggal, c.id_customer, c.nama, d.id_destinasi, d.nama_destinasi, f.id_fasilitas, f.tipe, p.id_pembayaran, p.metode FROM reservasi AS r JOIN customer AS c ON r.id_customer=c.id_customer JOIN destinasi AS d ON r.id_destinasi=d.id_destinasi JOIN fasilitas AS f ON r.id_fasilitas=f.id_fasilitas JOIN pembayaran AS p ON r.id_pembayaran=p.id_pembayaran";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <?= $data['id_customer']; ?>
+                                                    <?= $data['nama']; ?>
                                                 </td>
                                                 <td>
                                                     <?= $data['reservasi_tanggal']; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $data['nama_destinasi']; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $data['tipe']; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $data['metode']; ?>
                                                 </td>
                                                 <td>
                                                     <a href="edit.php?id_reservasi=<?php echo $data["id_reservasi"] ?>"

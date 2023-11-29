@@ -69,7 +69,7 @@
 
         td {
             text-align: center;
-            color: red;
+            color: black;
             font-size: bold;
         }
 
@@ -79,11 +79,15 @@
             text-align: center;
             color: darkgrey;
             padding: 40px;
-            margin-bottom: 100px;
+            margin-bottom: 50px;
         }
 
         .logout {
             margin-top: 150px;
+        }
+
+        .table {
+            border: 0px;
         }
     </style>
 
@@ -227,10 +231,10 @@
                                         ?>
                                         <a class="dropdown-item d-flex align-items-center" href="#">
                                             <div class="font-weight-bold">
-                                                <div class="text-truncate">
+                                                <div class="text">
                                                     <?php echo $data["pesan"] ?>
                                                 </div>
-                                                <div class="text-truncate">
+                                                <div class="text">
                                                     <i>
                                                         <?php echo $data["nama_contact"] ?>
                                                     </i>
@@ -280,50 +284,48 @@
                     SELAMAT DATANG DI HALAMAN ADMIN EDU-TRAVEL
                 </h1>
             </div>
-            <table class="table table-bordered" style="">
-                <thead>
-                    <tr>
-                        <th>
-                            <a href="tables.php">Jumlah Destinasi Wisata</a>
-                        </th>
-                        <th>
-                            <a href="fasilitas/fasilitas.php">Jumlah Fasilitas</a>
-                        </th>
-                        <th>
-                            <a href="reservasi/reservasi.php">Jumlah Reservasi</a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="container d-flex text-center" style="width: 80%;">
+                <div class="col-6">
+                    <a class="fas fa-fw fa-list fa-lg" href="tables.php"></a><br>
                     <?php
-                    ?>
-                    <tr>
-                        <td>
-                            <?php
-                            $query = mysqli_query($koneksi, "SELECT COUNT(id_destinasi) AS totaldestinasi FROM destinasi;");
-                            $data = mysqli_fetch_array($query); ?>
-                            <?php echo $data["totaldestinasi"] ?>
-                        </td>
-                        <td>
-                            <?php
-                            $ambil = mysqli_query($koneksi, "SELECT COUNT(id_fasilitas) AS totalfasilitas FROM fasilitas;");
-                            $isi = mysqli_fetch_array($ambil); ?>
-                            <?php echo $isi["totalfasilitas"] ?>
-                        </td>
-                        <td>
-                            <?php
-                            $cokot = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
-                            $eusi = mysqli_fetch_array($cokot); ?>
-                            <?php echo $eusi["totalreservasi"] ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    $query = mysqli_query($koneksi, "SELECT COUNT(id_destinasi) AS totaldestinasi FROM destinasi;");
+                    $data = mysqli_fetch_array($query); ?>
+                    <a href="tables.php" style="text-decoration: none; font-weight: bold;">Jumlah Destinasi</a><br><br>
+                    <b style="font-size: 18px;"><?php echo $data["totaldestinasi"] ?></b>
+                </div>
+                <div class="col-6">
+                    <a class="fas fa-fw fa-file" href="fasilitas/fasilitas.php"></a><br>
+                    <?php
+                    $query = mysqli_query($koneksi, "SELECT COUNT(id_fasilitas) AS totalfasilitas FROM fasilitas;");
+                    $data = mysqli_fetch_array($query); ?>
+                    <a href="fasilitas/fasilitas.php" style="text-decoration: none; font-weight: bold;">Jumlah Fasilitas</a><br><br>
+                    <b style="font-size: 18px;"><?php echo $data["totalfasilitas"] ?></b>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="container d-flex text-center" style="width: 80%;">
+                <div class="col-6">
+                    <a class="fa fa-fw fa-user fa-lg" href="customer/customer.php"></a><br>
+                    <?php
+                    $query = mysqli_query($koneksi, "SELECT COUNT(id_customer) AS totalcustomer FROM customer;");
+                    $data = mysqli_fetch_array($query); ?>
+                    <a href="customer/customer.php" style="text-decoration: none; font-weight: bold;">Jumlah Customer</a><br><br>
+                    <b style="font-size: 18px;"><?php echo $data["totalcustomer"] ?></b>
+                </div>
+                <div class="col-6">
+                    <a class="fas fa-fw fa-address-book" href="reservasi/reservasi.php"></a><br>
+                    <?php
+                    $query = mysqli_query($koneksi, "SELECT COUNT(id_reservasi) AS totalreservasi FROM reservasi;");
+                    $data = mysqli_fetch_array($query); ?>
+                    <a href="reservasi/reservasi.php" style="text-decoration: none; font-weight: bold;">Jumlah Reservasi</a><br><br>
+                    <b style="font-size: 18px;"><?php echo $data["totalreservasi"] ?></b>
+                </div>
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
             <div class="footer">
-                <span>Copyright &copy; Edu-Travel</span>
+                <span style="color: grey">Copyright &copy; Edu-Travel</span>
             </div>
             <!-- End of Footer -->
 

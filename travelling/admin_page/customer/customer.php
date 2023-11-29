@@ -29,7 +29,7 @@
 
     // Periksa apakah sesi masih aktif atau sudah habis
     $sesi_waktu_hidup = 600; // Sesuaikan dengan waktu hidup sesi yang Anda atur pada proses_login.php
-    if(isset($_SESSION['login_time'])){
+    if (isset($_SESSION['login_time'])) {
         if ((time() - $_SESSION['login_time']) > $sesi_waktu_hidup) {
             // Jika sesi telah habis, hapus session dan beri pesan
             echo "masuk";
@@ -44,7 +44,7 @@
                 </script>";
             exit();
         }
-    }else{
+    } else {
         echo "<script>
         if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
             window.location.href='../../login.php';
@@ -132,6 +132,9 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4 mt-5">
+                    <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-success">Data Customer</h6>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
@@ -164,13 +167,15 @@
                                                 <td>
                                                     <?= $data['telepon']; ?>
                                                 </td>
-                                                <td>
+                                                <td style="text-align: center;">
                                                     <a href="edit.php?id_customer=<?php echo $data["id_customer"] ?>"
-                                                        class="label label-warning"> Edit
+                                                        class="label label-warning"> <span
+                                                            class="glyphicon glyphicon-pencil"></span>
                                                     </a>
                                                     &nbsp;
                                                     <a href="hapus.php?id_customer=<?php echo $data["id_customer"] ?>"
-                                                        class="label label-danger"> Delete
+                                                        class="label label-danger"> <span
+                                                            class="glyphicon glyphicon-trash"></span>
                                                     </a>
                                                 </td>
                                             </tr>
