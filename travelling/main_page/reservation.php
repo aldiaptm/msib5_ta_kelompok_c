@@ -132,10 +132,10 @@
                                     <option value="">-- Pilih nama Anda --</option>
                                         <?php
                                         // Fetch data from the "items" table
-                                        $query = mysqli_query($koneksi, "SELECT *, r.id_customer as customer_id FROM `reservasi` as r JOIN `customer` as c ON r.id_customer=c.id_customer GROUP BY customer_id");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM customer GROUP BY nama");
                                         if(mysqli_num_rows($query)>0){
                                             while($data = mysqli_fetch_array($query)){
-                                                echo "<option value='" . $data["customer_id"] . "'>" . $data["nama"] . "</option>";
+                                                echo "<option value='" . $data["id_customer"] . "'>" . $data["nama"] . "</option>";
                                             }
                                         } else {
                                             echo "<option value=''>No items available</option>";
@@ -149,10 +149,10 @@
                                     <option value="">-- Pilih nama destinasi --</option>
                                         <?php
                                         // Fetch data from the "items" table
-                                        $query = mysqli_query($koneksi, "SELECT *, r.id_destinasi as destinasi_id FROM `reservasi` as r JOIN `destinasi` as d ON r.id_destinasi=d.id_destinasi GROUP BY d.id_destinasi");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM destinasi GROUP BY id_kategori");
                                         if(mysqli_num_rows($query)>0){
                                             while($data = mysqli_fetch_array($query)){
-                                                echo "<option value='" . $data["destinasi_id"] . "'>" . $data["nama_destinasi"] . "</option>";
+                                                echo "<option value='" . $data["id_destinasi"] . "'>" . $data["nama_destinasi"] . "</option>";
                                             }
                                         } else {
                                             echo "<option value=''>No items available</option>";
@@ -166,10 +166,10 @@
                                     <option value="">-- Pilih tipe fasilitas --</option>
                                         <?php
                                         // Fetch data from the "items" table
-                                        $query = mysqli_query($koneksi, "SELECT *, r.id_fasilitas as fasilitas_id FROM `reservasi` as r JOIN `fasilitas` as f ON r.id_fasilitas=f.id_fasilitas GROUP BY fasilitas_id;");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM fasilitas GROUP BY tipe");
                                         if(mysqli_num_rows($query)>0){
                                             while($data = mysqli_fetch_array($query)){
-                                                echo "<option value='" . $data["fasilitas_id"] . "'>" . $data["tipe"] . "</option>";
+                                                echo "<option value='" . $data["id_fasilitas"] . "'>" . $data["tipe"] . "</option>";
                                             }
                                         } else {
                                             echo "<option value=''>No items available</option>";
@@ -183,10 +183,10 @@
                                     <option value="">-- Pilih metode pembayaran --</option>
                                         <?php
                                         // Fetch data from the "items" table
-                                        $query = mysqli_query($koneksi, "SELECT *, r.id_pembayaran as pembayaran_id FROM `reservasi` as r JOIN `pembayaran` as p ON r.id_pembayaran=p.id_pembayaran GROUP BY pembayaran_id;");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM pembayaran");
                                         if(mysqli_num_rows($query)>0){
                                             while($data = mysqli_fetch_array($query)){
-                                                echo "<option value='" . $data["pembayaran_id"] . "'>" . $data["metode"] . "</option>";
+                                                echo "<option value='" . $data["id_pembayaran"] . "'>" . $data["metode"] . "</option>";
                                             }
                                         } else {
                                             echo "<option value=''>No items available</option>";
