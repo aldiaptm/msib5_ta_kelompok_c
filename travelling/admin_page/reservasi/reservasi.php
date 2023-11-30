@@ -172,12 +172,9 @@
                                                     <?= $data['metode']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="edit.php?id_reservasi=<?php echo $data["id_reservasi"] ?>"
-                                                        class="label label-warning"> Edit
-                                                    </a>
-                                                    &nbsp;
                                                     <a href="hapus.php?id_reservasi=<?php echo $data["id_reservasi"] ?>"
-                                                        class="label label-danger"> Delete
+                                                        class="label label-danger "> <span
+                                                            class="glyphicon glyphicon-trash"></span>
                                                     </a>
                                                 </td>
                                             </tr>
