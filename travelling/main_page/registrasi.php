@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EDU - TRAVEL</title>
+    <title>EDU TRAVEL</title>
     <link rel="icon" type="image/x-icon" href="img/logo-title.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -36,7 +36,7 @@
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>edutravel@gmail.com</p>
                         <p class="text-body px-3">|</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+622 540 12</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>622 540 12</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -67,8 +67,9 @@
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg">
                 <a href="" class="navbar-brand">
+ 
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -78,14 +79,14 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
-                        <a href="destination.php" class="nav-item nav-link">Destination </a>
+                        <a href="service.php" class="nav-item nav-link">Services</a>
+                        <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="category.php" class="dropdown-item">Category</a>
                                 <a href="developer.php" class="dropdown-item">Developer</a>
-                                <a href="testimonial.php" class="dropdown-item active">Testimonial</a>
+                                <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
@@ -101,57 +102,62 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Testimonial</h3>
+                <h3 class="display-4 text-white text-uppercase">Registrasi</h3>
                 <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+                    <p class="m-0 text-uppercase"><a class="text-white" href="index.php">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Testimonial</p>
+                    <p class="m-0 text-uppercase">Registrasi</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
-    <!-- Testimonial Start -->
+
+    <!-- Contact Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Ulasan</h6>
-                <h1>Masukan dan Saran </h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel">
                 <?php
                 include '../koneksi.php';
-                $query = mysqli_query($koneksi, "SELECT * FROM ulasan;");
                 ?>
-                <?php
-                if (mysqli_num_rows($query) > 0) {
-                    while ($data = mysqli_fetch_array($query)) {
-                        ?>
-                        <div class="text-center">
-                            <div class="testimonial-text bg-white p-4 mt-n5">
-                                <p class="mt-5">
-                                    <?php echo $data["pesan"]
-                                        ?>
-                                </p>
-                                <h5 class="text-truncate">
-                                    <?php echo $data["nama"]
-                                        ?>
-                                </h5>
-                                <span>
-                                    <?php echo $data["tanggal_ulasan"]
-                                        ?>
-                                </span>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Registrasi</h6>
+                <h2>Isi semua bagian formulir registrasi</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        <div id="success"></div>
+                        <form method="post" action="proses_tambah_registrasi.php">
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4" id="nama" name="nama"
+                                        placeholder="Masukan Nama" required="required"
+                                        data-validation-required-message="Silahkan masukan nama" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4" id="telepon" name="telepon" placeholder="Masukan Telepon" 
+                                        required="required"
+                                        data-validation-required-message="Silahkan masukan telepon" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                             </div>
-                        </div>
-                        <?php
-                    }
-                } ?>
+                            <div class="control-group">
+                                <input type="text" class="form-control p-4" id="email" name="email" placeholder="Masukan email"
+                                    required="required" data-validation-required-message="Silahkan masukan email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Testimonial End -->
+    <!-- Contact End -->
 
 
     <!-- Footer Start -->
@@ -228,6 +234,8 @@
         </div>
     </div>
     <!-- Footer End -->
+
+
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
