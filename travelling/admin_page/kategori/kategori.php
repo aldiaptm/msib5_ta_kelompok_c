@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tabel Kategori</title>
+    <title>Data Kategori</title>
     <link rel="icon" type="image/x-icon" href="../img/logo-title.png">
 
     <!-- Custom fonts for this template -->

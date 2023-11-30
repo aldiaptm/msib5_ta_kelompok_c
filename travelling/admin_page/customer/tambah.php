@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="customer.php"> Kembali </a>
-                <h1 style="margin-bottom:5px">Tambah Data User</h1>
+                <h1 style="margin-bottom:5px">Tambah Data Customer</h1>
                 <?php
                 include '../../koneksi.php';
                 ?>

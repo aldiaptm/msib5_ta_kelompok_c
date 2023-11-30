@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Customer</title>
+    <title>Tambah Fasilitas</title>
     <link rel="icon" type="image/x-icon" href="../img/logo-title.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="fasilitas.php"> Kembali </a>
-                <h1 style="margin-bottom:5px">Tambah Data User</h1>
+                <h1 style="margin-bottom:5px">Tambah Data Fasilitas</h1>
                 <?php
                 include '../../koneksi.php';
                 ?>
