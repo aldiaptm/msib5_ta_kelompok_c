@@ -29,7 +29,7 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container-fluid bg-light d-none d-lg-block pt-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <div class="registrasi" style="margin-left: 200px">
+                    <div class="registrasi" style="margin-left: 170px">
                         <a href="registrasi.php" class="btn btn-primary">Registrasi</a>
                     </div>
                 </div>
@@ -111,8 +111,7 @@
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
                             <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan,<br>tombol registrasi ada di pojok
-                                kanan atas.</h6> 
+                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan,<br>tombol registrasi ada di pojok kanan atas.</h6> 
                         </div>
                     </div>
                 </div>
