@@ -79,7 +79,7 @@
                 }
                 ?>
 
-                <h1>Edit Produk</h1>
+                <h1>Edit Data</h1>
                 <form method="post" onsubmit="return validateForm();">
                     <div class="form-group">
                         <label for="nama_destinasi">Nama:</label>
