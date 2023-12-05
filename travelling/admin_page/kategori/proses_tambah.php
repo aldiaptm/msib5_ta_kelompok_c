@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gambar_kategori_kategori = $_FILES["gambar_kategori"]["name"];
 
     // Upload Proses
-    $target_dir = "../../img/"; // path directory image akan di simpan
+    $target_dir = "../img/"; // path directory image akan di simpan
     $target_file = $target_dir . basename($_FILES["gambar_kategori"]["name"]); // full path dari image yg akan di simpan
     if (move_uploaded_file($_FILES["gambar_kategori"]["tmp_name"], $target_file)) {
         // echo "The file " . htmlspecialchars(basename($_FILES["gambar"]["name"])) . " has been uploaded.<br>";

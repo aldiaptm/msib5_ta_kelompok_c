@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 08:58 AM
+-- Generation Time: Dec 05, 2023 at 09:57 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -114,7 +114,10 @@ INSERT INTO `destinasi` (`id_destinasi`, `nama_destinasi`, `gambar`, `lokasi`, `
 (3, 'Kuliner Angkringan Malioboro', '../img/angkringan.jpeg', 'yogyakarta', '10000.00', 'Angkringan adalah warung makan jalanan yang populer di Malioboro. Warung ini menawarkan berbagai hidangan ringan dan nasi kucing dengan harga yang terjangkau. Pengunjung dapat memilih dari berbagai macam lauk-pauk, sambal, dan kerupuk untuk dinikmati bersama nasi kecil.', 2),
 (4, 'Kuliner Gudeg Malioboro', '../img/gudeg.jpg', 'yogyakarta', '10000.00', 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', 2),
 (5, 'Gunung Semeru', '../img/semeru.jpg', 'Jawa Timur', '60000.00', 'Gunung tertinggi di pulau jawa.', 1),
-(6, 'Pantai Pangandaran', '../img/pantai-pangandaran.jpg', 'Jawa Barat', '60000.00', 'Pantai pangandaran merupakan sebuah destinasi wisata pantai terbaik di daerah selatan Jawa  Barat.', 3);
+(7, 'Pantai Pangandaran', '../img/pantai-pangandaran.jpg', 'Jawa Barat', '28000.00', 'Pantai pangandaran merupakan sebuah destinasi wisata pantai terbaik di daerah selatan Jawa  Barat.', 3),
+(8, 'Pantai Ujung Genteng', '../img/ug.jpg', 'Jawa Barat', '60000.00', 'Pantai Ujung Genteng merupakan pantai yang terletak di sebelah barat pulau jawa.', 3),
+(11, 'Makam Sunan Gunung Djati', '../img/gunung-jati.jpg', 'Cirebon', '60000.00', 'Sunan Gunung Djati di Cirebon', 9),
+(12, 'Sunan Muria', '../img/muria.png', 'Kudus', '200000.00', 'Sunan Muria adalah Ulama yang termasuk dalam anggota dewan Wali Songo. Nama lahirnya adalah Umar Said.', 9);
 
 -- --------------------------------------------------------
 
@@ -155,10 +158,10 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
-(1, 'Wisata Alam', '../../img/wa.jpeg'),
-(2, 'Wisata Kuliner', '../../img/gd.jpeg'),
-(3, 'Wisata Pantai', '../../img/krj.jpeg'),
-(5, 'Wisata Religi', '../../img/wr.jpg');
+(1, 'Wisata Alam', '../img/wa.jpeg'),
+(2, 'Wisata Kuliner', '../img/gd.jpeg'),
+(3, 'Wisata Pantai', '../img/krj.jpeg'),
+(9, 'Wisata Religi', '../img/wr.jpg');
 
 -- --------------------------------------------------------
 
@@ -317,7 +320,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `destinasi`
 --
 ALTER TABLE `destinasi`
-  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `fasilitas`
@@ -329,7 +332,7 @@ ALTER TABLE `fasilitas`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
