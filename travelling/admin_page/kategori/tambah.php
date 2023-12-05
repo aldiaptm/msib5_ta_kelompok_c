@@ -49,16 +49,12 @@
                 <form style="margin-top: 20px" action="proses_tambah.php" method="post" enctype="multipart/form-data"
                     onsubmit="return validateForm();">
                     <div class="form-group">
-                        <label for="nama">Nama:</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <label for="nama_kategori">Nama Kategori:</label>
+                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="telepon">Telepon:</label>
-                        <input type="text" class="form-control" id="telepon" name="telepon">
+                        <label for="gambar_kategori">Gambar:</label>
+                        <input type="file" id="gambar_kategori" name="gambar_kategori">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

@@ -1,7 +1,7 @@
 <?php 
 include '../../koneksi.php';
-$result = mysqli_query($koneksi, "DELETE from customer where `id_customer` = '$_GET[id_customer]'");
+$result = mysqli_query($koneksi, "DELETE from kategori where `id_kategori` = '$_GET[id_kategori]'");
 
-echo "<script>alert('Data berhasil dihapus.'); window.location.href='customer.php';</script>";
+echo "<script>alert('Data berhasil dihapus.'); window.location.href='kategori.php';</script>";
 
 ?>

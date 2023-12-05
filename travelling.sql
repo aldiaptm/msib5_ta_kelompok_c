@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 07:09 AM
+-- Generation Time: Dec 05, 2023 at 08:58 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -62,7 +62,9 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal_contact`) VALUES
 (13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02'),
-(14, 'Ucup', 'Keluhan', 'Tidak dapat registrasi karena tidak ada halaman registrasi:(', '2023-11-29 11:30:41');
+(14, 'Ucup', 'Keluhan', 'Tidak dapat registrasi karena tidak ada halaman registrasi:(', '2023-11-29 11:30:41'),
+(15, 'Udin', 'Apresiasi', 'Edu Travel amat sangat direkomendasikan bagi kalian yang ingin liburan dengan budget yang sesuai dengan yang kalian punya!', '2023-11-29 08:27:08'),
+(16, 'Aziz', 'Ngeluh', 'Putus asa, jangan semangat!!', '2023-11-30 07:21:46');
 
 -- --------------------------------------------------------
 
@@ -83,7 +85,8 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id_customer`, `nama`, `email`, `telepon`) VALUES
 (1, 'Tono Topan', 'tono@gmail.com', '089742214221'),
-(2, 'Tini Tita', 'tini@gmail.com', '089741241241');
+(2, 'Tini Tita', 'tini@gmail.com', '089741241241'),
+(6, 'Maman Racing Team', 'maman12@gmail.co.id', '0812381291241');
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,9 @@ INSERT INTO `destinasi` (`id_destinasi`, `nama_destinasi`, `gambar`, `lokasi`, `
 (1, 'Kebun Raya Bogor', '../img/krb.jpeg', 'Bogor', '15000.00', 'Kebun Raya Bogor atau Kebun Botani Bogor adalah sebuah kebun botani besar yang terletak di Kota Bogor, Indonesia. Kebun ini dioperasikan oleh Badan Riset dan Inovasi Nasional. Kebun ini terletak di pusat kota Bogor dan bersebelahan dengan kompleks istana kepresidenan Istana Bogor.', 1),
 (2, 'Pantai Sawarna', '../img/pantai.jpeg', 'Banten', '5000.00', 'Pantai Sawarna dikenal karena keindahan alamnya yang menakjubkan. Pantai ini memiliki pasir putih yang lembut, ombak yang besar, dan pemandangan laut yang menakjubkan. Vegetasi alami yang subur di sekitar pantai juga menambah pesona alam Pantai Sawarna.', 3),
 (3, 'Kuliner Angkringan Malioboro', '../img/angkringan.jpeg', 'yogyakarta', '10000.00', 'Angkringan adalah warung makan jalanan yang populer di Malioboro. Warung ini menawarkan berbagai hidangan ringan dan nasi kucing dengan harga yang terjangkau. Pengunjung dapat memilih dari berbagai macam lauk-pauk, sambal, dan kerupuk untuk dinikmati bersama nasi kecil.', 2),
-(4, 'Kuliner Gudeg Malioboro', '../img/gudeg.jpg', 'yogyakarta', '10000.00', 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', 2);
+(4, 'Kuliner Gudeg Malioboro', '../img/gudeg.jpg', 'yogyakarta', '10000.00', 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', 2),
+(5, 'Gunung Semeru', '../img/semeru.jpg', 'Jawa Timur', '60000.00', 'Gunung tertinggi di pulau jawa.', 1),
+(6, 'Pantai Pangandaran', '../img/pantai-pangandaran.jpg', 'Jawa Barat', '60000.00', 'Pantai pangandaran merupakan sebuah destinasi wisata pantai terbaik di daerah selatan Jawa  Barat.', 3);
 
 -- --------------------------------------------------------
 
@@ -128,9 +133,10 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id_fasilitas`, `tipe`, `keterangan`) VALUES
-(1, 'Reguler', 'Melihat satwa, Menghadiri pertunjukan, Menggunakan fasilitas umum, dan Berpartisipasi dalam aktivitas edukasi.\r\n'),
+(1, 'Eksekutif', 'Melihat satwa, Menghadiri pertunjukan, Menggunakan fasilitas umum, dan Berpartisipasi dalam aktivitas edukasi.\r\n'),
 (2, 'Reguler', 'Tempat parkir, Warung makan, Area bermain pantai.'),
-(3, 'Ekonomi', 'Tempat parkir, Toilet, Mushola, Tempat makan, Kipas angin.');
+(3, 'Ekonomi', 'Tempat parkir, Toilet, Mushola, Tempat makan, Kipas angin.'),
+(5, 'VIP', 'Hotel bintang 5, Makan di restoran mewah');
 
 -- --------------------------------------------------------
 
@@ -149,9 +155,10 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
-(1, 'Wisata Alam', '../img/wa.jpeg'),
-(2, 'Wisata Kuliner', '../img/gd.jpeg'),
-(3, 'Wisata Pantai', '../img/krj.jpeg');
+(1, 'Wisata Alam', '../../img/wa.jpeg'),
+(2, 'Wisata Kuliner', '../../img/gd.jpeg'),
+(3, 'Wisata Pantai', '../../img/krj.jpeg'),
+(5, 'Wisata Religi', '../../img/wr.jpg');
 
 -- --------------------------------------------------------
 
@@ -195,7 +202,9 @@ CREATE TABLE `reservasi` (
 --
 
 INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id_destinasi`, `id_fasilitas`, `id_pembayaran`) VALUES
-(5, 2, '2023-11-29 07:06:26', 1, 1, 3);
+(5, 2, '2023-11-29 07:06:26', 1, 1, 3),
+(8, 1, '2023-11-29 04:24:13', 2, 2, 4),
+(9, 2, '2023-11-29 08:25:22', 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -296,31 +305,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `destinasi`
 --
 ALTER TABLE `destinasi`
-  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
@@ -332,7 +341,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ulasan`

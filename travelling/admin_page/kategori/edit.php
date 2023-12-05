@@ -9,11 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script>
         function validateForm() {
-            var nama = document.getElementById("nama").value;
-            var email = document.getElementById("email").value;
-            var telepon = document.getElementById("telepon").value;
+            var nama = document.getElementById("nama_kategori").value;
 
-            if (nama.trim() === '' || email.trim() === '' || telepon.trim() === '') {
+            if (nama.trim() === '') {
                 alert("Harap isi semua kolom!");
                 return false;
             } else {
@@ -43,18 +41,18 @@
     <div class="container" style="width: 500px;">
         <div class="row">
             <div class="col-sm-12">
-                <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="customer.php"> Kembali
+                <a class="btn btn-success" style="margin-bottom:5px; margin-top:20px;" href="kategori.php"> Kembali
                 </a><br><br>
                 <?php
                 include '../../koneksi.php';
                 date_default_timezone_set('Asia/Jakarta');
 
-                if (isset($_GET['id_customer'])) {
-                    $id_customer = $_GET['id_customer'];
-                    $query = mysqli_query($koneksi, "SELECT * FROM customer WHERE id_customer = $id_customer");
+                if (isset($_GET['id_kategori'])) {
+                    $id_kategori = $_GET['id_kategori'];
+                    $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id_kategori = $id_kategori");
 
                     if (mysqli_num_rows($query) > 0) {
-                        $customer = mysqli_fetch_assoc($query);
+                        $kategori = mysqli_fetch_assoc($query);
                     } else {
                         echo "Produk tidak ditemukan.";
                         exit;
@@ -65,33 +63,21 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $nama = $_POST['nama'];
-                    $email = $_POST['email'];
-                    $telepon = $_POST['telepon'];
-
-                    $update_query = "UPDATE customer SET nama='$nama', email='$email', telepon='$telepon' WHERE id_customer = $id_customer";
+                    $nama_kategori = $_POST['nama_kategori'];
+                    
+                    $update_query = "UPDATE kategori SET nama_kategori='$nama_kategori' WHERE id_kategori = $id_kategori";
                     $update_result = mysqli_query($koneksi, $update_query);
 
-                    echo "<script>alert('Data berhasil diubah.'); window.location.href='customer.php';</script>";
+                    echo "<script>alert('Data berhasil diubah.'); window.location.href='kategori.php';</script>";
                 }
                 ?>
 
-                <h1>Edit Customer</h1>
+                <h1>Edit Kategori</h1>
                 <form method="post" onsubmit="return validateForm();">
                     <div class="form-group">
-                        <label for="nama">Nama:</label>
-                        <input type="text" class="form-control" id="nama" name="nama"
-                            value="<?php echo $customer['nama']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email"
-                            value="<?php echo $customer['email']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="telepon">Telepon:</label>
-                        <input type="text" class="form-control" id="telepon" name="telepon"
-                            value="<?php echo $customer['telepon']; ?>">
+                        <label for="nama_kategori">Nama Kategori:</label>
+                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"
+                            value="<?php echo $kategori['nama_kategori']; ?>">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </form>
