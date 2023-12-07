@@ -256,10 +256,10 @@
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <a href="" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>

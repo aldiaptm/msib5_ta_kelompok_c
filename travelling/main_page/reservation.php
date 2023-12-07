@@ -68,7 +68,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -213,7 +213,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
