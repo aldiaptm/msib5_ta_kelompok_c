@@ -37,7 +37,7 @@
                         <p><i class="fa fa-phone-alt mr-2"></i>+622 540 12</p>
                     </div>
                 </div>
-                <div class="col-lg-4 text-lg-right">
+                <div class="col-lg-6 text-lg-right">
                     <div class="d-inline-flex" style="margin-left: 300px">
                         <a class="text-primary px-3" href="https://www.facebook.com">
                             <i class="fab fa-facebook-f"></i>
@@ -54,11 +54,6 @@
                         <a class="text-primary pl-3" href="https://www.youtube.com">
                             <i class="fab fa-youtube"></i>
                         </a>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="registrasi" style="margin-left: 170px">
-                        <a href="registrasi.php" class="btn btn-primary">Registrasi</a>
                     </div>
                 </div>
             </div>
@@ -108,8 +103,8 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
-                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan,<br>tombol registrasi ada di pojok kanan atas.</h6> 
+                            <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
+                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan.</h6> 
                         </div>
                     </div>
                 </div>
@@ -119,9 +114,8 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Jelajahi Tempat Wisata Bersama Kami</h1>
-                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan,<br>tombol registrasi ada di pojok
-                                kanan atas.</h6>
+                            <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
+                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan.</h6>
                         </div>
                     </div>
                 </div>
