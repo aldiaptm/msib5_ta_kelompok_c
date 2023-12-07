@@ -5,12 +5,10 @@
     <meta charset="utf-8">
     <title>EDU - TRAVEL</title>
     <link rel="icon" type="image/x-icon" href="img/logo-title.png">
+    
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,7 +27,7 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light d-none d-lg-block pt-3">
+    <div class="container-fluid bg-light d-lg-block pt-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
