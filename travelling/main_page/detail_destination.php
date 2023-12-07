@@ -240,7 +240,7 @@
                             <a href="reservation.php" class="btn btn-light m-1">Reservation</a>
                             <a href="category.php" class="btn btn-light m-1">Category</a>
                             <a href="destination.php" class="btn btn-light m-1">Destination</a>
-                            <a href="develover.php" class="btn btn-light m-1">Develover</a>
+                            <a href="developer.php" class="btn btn-light m-1">Developer</a>
                             <a href="testimonial.php" class="btn btn-light m-1">Testimonial</a>
                             <a href="contact.php" class="btn btn-light m-1">Contact</a>
                         </div>
