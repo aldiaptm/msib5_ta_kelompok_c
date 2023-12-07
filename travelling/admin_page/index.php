@@ -252,11 +252,15 @@
                                         <a class="dropdown-item d-flex align-items-center" href="#">
                                             <div class="font-weight-bold">
                                                 <div class="text">
+                                                    <p><?php echo $data["subjek"] ?> :</p>
+                                                </div>
+                                                <div class="text" style="margin-top: -10px;">
                                                     <?php echo $data["pesan"] ?>
                                                 </div>
                                                 <div class="text">
                                                     <i>
-                                                        - <?php echo $data["nama_contact"] ?>
+                                                        -
+                                                        <?php echo $data["nama_contact"] ?>
                                                     </i>
                                                 </div>
                                             </div>
