@@ -69,7 +69,7 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg">
                 <a href="" class="navbar-brand">
- 
+
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -79,7 +79,7 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.php" class="nav-item nav-link">About</a>
-                        <a href="service.php" class="nav-item nav-link">Services</a>
+                        <a href="reservation.php" class="nav-item nav-link">Reservation</a>
                         <a href="destination.php" class="nav-item nav-link">Destination</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -137,19 +137,21 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="telepon" name="telepon" placeholder="Masukan Telepon" 
-                                        required="required"
+                                    <input type="text" class="form-control p-4" id="telepon" name="telepon"
+                                        placeholder="Masukan Telepon" required="required"
                                         data-validation-required-message="Silahkan masukan telepon" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="email" name="email" placeholder="Masukan email"
-                                    required="required" data-validation-required-message="Silahkan masukan email" />
+                                <input type="text" class="form-control p-4" id="email" name="email"
+                                    placeholder="Masukan email" required="required"
+                                    data-validation-required-message="Silahkan masukan email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Kirim</button>
+                                <button class="btn btn-primary py-3 px-4" type="submit"
+                                    id="sendMessageButton">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -167,8 +169,8 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
-                    vero lorem dolor dolor</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif
+                    kalian bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i
@@ -185,7 +187,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -200,7 +203,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
