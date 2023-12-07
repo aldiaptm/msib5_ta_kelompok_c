@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>EDU - TRAVEL</title>
     <link rel="icon" type="image/x-icon" href="img/logo-title.png">
-    
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -104,7 +104,8 @@
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
                             <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan.</h6> 
+                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan
+                                pemesanan.</h6>
                         </div>
                     </div>
                 </div>
@@ -115,7 +116,8 @@
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Jelajahi Tempat Wisata Bersama Kami</h1>
                             <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan pemesanan.</h6>
+                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan
+                                pemesanan.</h6>
                         </div>
                     </div>
                 </div>
@@ -443,8 +445,8 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
-                    vero lorem dolor dolor</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif
+                    kalian bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i
