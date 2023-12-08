@@ -1,3 +1,17 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    // If user is not logged in, redirect to login page
+    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
+    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +83,7 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg">
                 <a href="index.php" class="navbar-brand">
- 
+
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -90,6 +104,29 @@
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link active">Contact</a>
+                        <?php
+                        if (isset($loggedInUsername)) {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $loggedInUsername; ?>
+                                </a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -137,19 +174,21 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="subjek" name="subjek" placeholder="Masukan subjek" 
-                                        required="required"
+                                    <input type="text" class="form-control p-4" id="subjek" name="subjek"
+                                        placeholder="Masukan subjek" required="required"
                                         data-validation-required-message="Silahkan masukan subjek" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="pesan" name="pesan" placeholder="Masukan pesan"
-                                    required="required" data-validation-required-message="Silahkan masukan pesan" />
+                                <input type="text" class="form-control p-4" id="pesan" name="pesan"
+                                    placeholder="Masukan pesan" required="required"
+                                    data-validation-required-message="Silahkan masukan pesan" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Kirim</button>
+                                <button class="btn btn-primary py-3 px-4" type="submit"
+                                    id="sendMessageButton">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -185,7 +224,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -200,7 +240,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>

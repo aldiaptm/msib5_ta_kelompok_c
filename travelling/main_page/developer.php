@@ -1,3 +1,17 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    // If user is not logged in, redirect to login page
+    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
+    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +28,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -89,6 +103,29 @@
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <?php
+                        if (isset($loggedInUsername)) {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $loggedInUsername; ?>
+                                </a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -134,9 +171,12 @@
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -157,9 +197,12 @@
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -180,9 +223,12 @@
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -203,9 +249,12 @@
                             </div>
                             <p>Hobi : Membaca dan Fotografer</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i class  ="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -242,7 +291,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
@@ -257,7 +307,8 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="destination.php"><i
                             class="fa fa-angle-right mr-2"></i>Destination</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>

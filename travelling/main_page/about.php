@@ -1,3 +1,17 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    // If user is not logged in, redirect to login page
+    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
+    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +82,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="index.php" class="navbar-brand">
+                <a href="" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -89,6 +103,29 @@
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <?php
+                        if (isset($loggedInUsername)) {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $loggedInUsername; ?>
+                                </a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -192,7 +229,7 @@
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.php" class="navbar-brand">
+                <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
                 <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif

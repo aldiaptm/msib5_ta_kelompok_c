@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 02:06 PM
+-- Generation Time: Dec 08, 2023 at 03:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(25) NOT NULL,
   `profile` varchar(255) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `profile`, `username`, `password`) VALUES
-(1, 'Admin EDU-TRAVEL', 'img/adminprofile.png', 'admin', '$2y$10$iSeCP2LAgvRYHsmXxXpKQe8Qd8RDJvAytLA7yAdazRvWbcC13WyhG');
+(1, 'Admin EDU-TRAVEL', 'img/adminprofile.png', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -61,8 +61,10 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal_contact`) VALUES
-(18, 'Andre', 'Kritik', 'Untuk menu registrasi sebaiknya dipindah ke bagian navbar agar tidak memusingkan customer!', '2023-12-07 05:56:29'),
-(20, 'Luqman', 'Keluhan', 'Menu registrasi hanya terdapat di bagian index saja, sebaiknya ditambahkan di bagian navbar!', '2023-12-07 06:04:30');
+(13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02'),
+(14, 'Ucup', 'Keluhan', 'Tidak dapat registrasi karena tidak ada halaman registrasi:(', '2023-11-29 11:30:41'),
+(15, 'Udin', 'Apresiasi', 'Edu Travel amat sangat direkomendasikan bagi kalian yang ingin liburan dengan budget yang sesuai dengan yang kalian punya!', '2023-11-29 08:27:08'),
+(16, 'Aziz', 'Ngeluh', 'Putus asa, jangan semangat!!', '2023-11-30 07:21:46');
 
 -- --------------------------------------------------------
 
@@ -72,6 +74,8 @@ INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal
 
 CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telepon` varchar(13) NOT NULL
@@ -81,11 +85,35 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id_customer`, `nama`, `email`, `telepon`) VALUES
-(1, 'Tono Topan', 'tono@gmail.com', '089742214221'),
-(2, 'Tini Tita', 'tini@gmail.com', '089741241241'),
-(6, 'Maman Racing Team', 'maman12@gmail.co.id', '0812381291241'),
-(7, 'Saung Udjo', 'udjo@gmail.com', '08122831824');
+INSERT INTO `customer` (`id_customer`, `username`, `password`, `nama`, `email`, `telepon`) VALUES
+(1, 'tono', 'tono', 'Tono Topan', 'tono@gmail.com', '089742214221'),
+(2, 'tini', 'tini', 'Tini Tita', 'tini@gmail.com', '089741241241'),
+(6, 'maman', 'maman', 'Maman Racing Team', 'maman12@gmail.co.id', '0812381291241'),
+(7, 'enjang', 'enjang', 'Enjang', 'enjang16@gmail.com', '08129841814');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_like`
+--
+
+CREATE TABLE `customer_like` (
+  `id_like` int(11) NOT NULL,
+  `id_customer` int(11) NOT NULL,
+  `id_destinasi` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer_like`
+--
+
+INSERT INTO `customer_like` (`id_like`, `id_customer`, `id_destinasi`) VALUES
+(4, 6, 2),
+(5, 6, 1),
+(6, 6, 4),
+(7, 7, 12),
+(8, 7, 8),
+(9, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -113,10 +141,10 @@ INSERT INTO `destinasi` (`id_destinasi`, `nama_destinasi`, `gambar`, `lokasi`, `
 (3, 'Kuliner Angkringan Malioboro', '../img/angkringan.jpeg', 'yogyakarta', '10000.00', 'Angkringan adalah warung makan jalanan yang populer di Malioboro. Warung ini menawarkan berbagai hidangan ringan dan nasi kucing dengan harga yang terjangkau. Pengunjung dapat memilih dari berbagai macam lauk-pauk, sambal, dan kerupuk untuk dinikmati bersama nasi kecil.', 2),
 (4, 'Kuliner Gudeg Malioboro', '../img/gudeg.jpg', 'yogyakarta', '10000.00', 'Gudeg adalah makanan khas Yogyakarta, dan Anda dapat dengan mudah menemukannya di sekitar Malioboro. Gudeg terbuat dari nangka muda yang dimasak dengan santan, kemiri, kelapa, dan bumbu-bumbu lainnya. Biasanya disajikan dengan nasi, ayam, telur, dan sambal krecek.', 2),
 (5, 'Gunung Semeru', '../img/semeru.jpg', 'Jawa Timur', '60000.00', 'Gunung tertinggi di pulau jawa.', 1),
+(7, 'Pantai Pangandaran', '../img/pantai-pangandaran.jpg', 'Jawa Barat', '28000.00', 'Pantai pangandaran merupakan sebuah destinasi wisata pantai terbaik di daerah selatan Jawa  Barat.', 3),
 (8, 'Pantai Ujung Genteng', '../img/ug.jpg', 'Jawa Barat', '60000.00', 'Pantai Ujung Genteng merupakan pantai yang terletak di sebelah barat pulau jawa.', 3),
 (11, 'Makam Sunan Gunung Djati', '../img/gunung-jati.jpg', 'Cirebon', '60000.00', 'Sunan Gunung Djati di Cirebon', 9),
-(12, 'Sunan Muria', '../img/muria.png', 'Kudus', '200000.00', 'Sunan Muria adalah Ulama yang termasuk dalam anggota dewan Wali Songo. Nama lahirnya adalah Umar Said.', 9),
-(13, 'Pantai Pangandaran', '../img/pantai-pangandaran.jpg', 'Pangandaran, Jawa Barat', '60000.00', 'Pantai pangandaran merupakan sebuah destinasi wisata pantai terbaik di daerah selatan Jawa  Barat.', 3);
+(12, 'Sunan Muria', '../img/muria.png', 'Kudus', '200000.00', 'Sunan Muria adalah Ulama yang termasuk dalam anggota dewan Wali Songo. Nama lahirnya adalah Umar Said.', 9);
 
 -- --------------------------------------------------------
 
@@ -206,8 +234,7 @@ CREATE TABLE `reservasi` (
 INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id_destinasi`, `id_fasilitas`, `id_pembayaran`) VALUES
 (5, 2, '2023-11-29 07:06:26', 1, 1, 3),
 (8, 1, '2023-11-29 04:24:13', 2, 2, 4),
-(9, 2, '2023-11-29 08:25:22', 3, 3, 2),
-(11, 7, '2023-12-07 02:49:09', 12, 2, 3);
+(9, 2, '2023-11-29 08:25:22', 3, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -229,8 +256,7 @@ CREATE TABLE `ulasan` (
 INSERT INTO `ulasan` (`id_ulasan`, `nama`, `pesan`, `tanggal_ulasan`) VALUES
 (1, 'Ujang', 'Terus tingkatkan pelayanannya!', '2023-11-25 07:42:06'),
 (2, 'Tati', 'Terus tingkatkan Pembayarannya!', '2023-11-25 07:43:06'),
-(3, 'Tukul', 'Terus tingkatkan harganya!', '2023-11-25 07:43:00'),
-(4, 'Rahmat', 'Semoga kedepannya diadakan wisata budaya', '2023-12-07 02:52:42');
+(3, 'Tukul', 'Terus tingkatkan harganya!', '2023-11-25 07:43:00');
 
 --
 -- Indexes for dumped tables
@@ -253,6 +279,14 @@ ALTER TABLE `contact`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`);
+
+--
+-- Indexes for table `customer_like`
+--
+ALTER TABLE `customer_like`
+  ADD PRIMARY KEY (`id_like`),
+  ADD KEY `id_customer` (`id_customer`),
+  ADD KEY `id_destinasi` (`id_destinasi`);
 
 --
 -- Indexes for table `destinasi`
@@ -309,7 +343,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -318,10 +352,16 @@ ALTER TABLE `customer`
   MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `customer_like`
+--
+ALTER TABLE `customer_like`
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `destinasi`
 --
 ALTER TABLE `destinasi`
-  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_destinasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `fasilitas`
@@ -345,13 +385,13 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

@@ -1,3 +1,17 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    // If user is not logged in, redirect to login page
+    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
+    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +28,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -89,6 +103,29 @@
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <?php
+                        if (isset($loggedInUsername)) {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $loggedInUsername; ?>
+                                </a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -120,64 +157,97 @@
         <div class="container py-5">
             <div class="row">
                 <?php
-                    include '../koneksi.php';
-                    $id_terima = $_GET['id_destinasi'];
-                    $destinasi = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where d.id_destinasi=$id_terima;");
-                
-                    if(mysqli_num_rows($destinasi)>0){
-                        while($d = mysqli_fetch_array($destinasi)){
-                            $gambar = $d["gambar"];
-                            $id_destinasi = $d["id_destinasi"];
-                            $nama_kategori = $d["id_kategori"];
-                            $nama_kategori = $d["nama_kategori"];
-                            $lokasi = $d["lokasi"];
-                            $harga = $d["harga"];
-                            $nama_destinasi = $d["nama_destinasi"];
-                            $deskripsi = $d["deskripsi"];
-                        }
+                include '../koneksi.php';
+                $id_terima = $_GET['id_destinasi'];
+                $destinasi = mysqli_query($koneksi, "SELECT * FROM `destinasi` as d JOIN `kategori` as k ON d.id_kategori=k.id_kategori where d.id_destinasi=$id_terima;");
+
+                if (mysqli_num_rows($destinasi) > 0) {
+                    while ($d = mysqli_fetch_array($destinasi)) {
+                        $gambar = $d["gambar"];
+                        $id_destinasi = $d["id_destinasi"];
+                        $nama_kategori = $d["id_kategori"];
+                        $nama_kategori = $d["nama_kategori"];
+                        $lokasi = $d["lokasi"];
+                        $harga = $d["harga"];
+                        $nama_destinasi = $d["nama_destinasi"];
+                        $deskripsi = $d["deskripsi"];
                     }
+                }
                 ?>
                 <div class="col-lg-8">
                     <!-- Destination Detail Start -->
                     <div class="pb-3">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="<?php echo $gambar?>" style="height:600px">
+                                <img class="img-fluid w-100" src="<?php echo $gambar ?>" style="height:600px">
                                 <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1"><?php echo $id_destinasi?></h6>
+                                    <h6 class="font-weight-bold mb-n1">
+                                        <?php echo $id_destinasi ?>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
                             <div class="d-flex justify-content-between mb-3">
-                                <div class="text-primary text-decoration-none"><i class="fas fa-tag text-primary mr-2"></i><?php echo $nama_kategori?></div>
-                                <div class="text-primary  text-decoration-none"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $lokasi?></div>
-                                <div class="text-primary text-decoration-none"><i class="fas text-primary mr-2">HTM : </i><?php echo "Rp. " . number_format($harga,0,',','.')?></div>
+                                <div class="text-primary text-decoration-none"><i
+                                        class="fas fa-tag text-primary mr-2"></i>
+                                    <?php echo $nama_kategori ?>
+                                </div>
+                                <div class="text-primary  text-decoration-none"><i
+                                        class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                    <?php echo $lokasi ?>
+                                </div>
+                                <div class="text-primary text-decoration-none"><i class="fas text-primary mr-2">HTM :
+                                    </i>
+                                    <?php echo "Rp. " . number_format($harga, 0, ',', '.') ?>
+                                </div>
                             </div>
-                            <h2 class="mb-3"><?php echo $nama_destinasi?></h2>
-                            <p><?php echo $deskripsi?></p>
+                            <h2 class="mb-3">
+                                <?php echo $nama_destinasi ?>
+                            </h2>
+                            <p>
+                                <?php echo $deskripsi ?>
+                            </p>
                         </div>
+                        <!-- Like Button Start -->
+                        <div class="bg-white mb-3" style="padding: 30px;">
+                            <!-- Tambahkan Button dengan Icon Like -->
+                            <form id="likeForm" action="proses_like_destinasi.php" method="post">
+                                <input type="hidden" name="id_customer" value="<?php echo $id_customer; ?>">
+                                <input type="hidden" name="id_destinasi" value="<?php echo $id_destinasi; ?>">
+                                <button type="submit" class="btn btn-primary">Like <i
+                                        class="fas fa-thumbs-up"></i></button>
+                            </form>
+                        </div>
+                        <!-- Like Button End -->
                     </div>
                     <!-- Destination Detail End -->
 
                     <!-- Fasilitas Destination Start -->
                     <div class="d-flex flex-column bg-white mb-5 py-5 px-4">
                         <h4 class="text-uppercase mb-3" style="letter-spacing: 5px;">Fasilitas Yang Tersedia</h4>
-                        <div class="bg-white" >
+                        <div class="bg-white">
                             <?php
-                                include '../koneksi.php';
-                                $no = 1;
-                                $query = mysqli_query($koneksi, "SELECT * FROM `fasilitas` where id_fasilitas=id_fasilitas;");
+                            include '../koneksi.php';
+                            $no = 1;
+                            $query = mysqli_query($koneksi, "SELECT * FROM `fasilitas` where id_fasilitas=id_fasilitas;");
                             ?>
-                            <?php 
-                                if(mysqli_num_rows($query)>0){
-                                while($data = mysqli_fetch_array($query)){
-                            ?>
-                            <p class="text-primary">Tipe Fasilitas <?php echo $no ?> :</p>
-                            <p><?php echo $data["tipe"] ?></p>
-                            <p class="text-primary">Deskripsi Fasilitas :</p>
-                            <p><?php echo $data["keterangan"] ?></p> <br>
-                            <?php $no++; } ?>
+                            <?php
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                                    <p class="text-primary">Tipe Fasilitas
+                                        <?php echo $no ?> :
+                                    </p>
+                                    <p>
+                                        <?php echo $data["tipe"] ?>
+                                    </p>
+                                    <p class="text-primary">Deskripsi Fasilitas :</p>
+                                    <p>
+                                        <?php echo $data["keterangan"] ?>
+                                    </p> <br>
+                                    <?php $no++;
+                                } ?>
                             <?php } ?>
                         </div>
                     </div>
@@ -187,7 +257,7 @@
                     <div class="bg-white mb-3" style="padding: 30px;">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Berikan Ulasan</h4>
                         <?php
-                            include '../koneksi.php';
+                        include '../koneksi.php';
                         ?>
                         <form action="proses_tambah_ulasan.php" method="post" onsubmit="return validateForm()">
                             <div class="form-group">
@@ -195,7 +265,8 @@
                                 <input type="text" class="form-control" name="nama" id="nama">
                             </div>
                             <div class="form-group">
-                                <label for="pesan" class="text-primary">Komentar <span style="color:red">*</span></label>
+                                <label for="pesan" class="text-primary">Komentar <span
+                                        style="color:red">*</span></label>
                                 <textarea id="pesan" cols="30" rows="5" name="pesan" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
@@ -206,31 +277,35 @@
                     </div>
                     <!-- Comment Form End -->
                 </div>
-    
+
                 <div class="col-lg-4 mt-5 mt-lg-0">
                     <!-- Category List -->
                     <div class="mb-5">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Kategori</h4>
                         <div class="bg-white" style="padding: 30px;">
                             <?php
-                                include '../koneksi.php';
+                            include '../koneksi.php';
 
-                                $query = mysqli_query($koneksi, "SELECT * FROM `kategori` where id_kategori=id_kategori;");
+                            $query = mysqli_query($koneksi, "SELECT * FROM `kategori` where id_kategori=id_kategori;");
 
-                                if(mysqli_num_rows($query)>0){
-                                while($data = mysqli_fetch_array($query)){
-                            ?>
-                            <ul class="list-inline m-0">
-                                <li class="mb-3 d-flex justify-content-between align-items-center">
-                                    <a class="text-dark" href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>"><i class="fa fa-angle-right text-primary mr-2"></i><?php echo $data["nama_kategori"] ?></a>
-                                </li>
-                            </ul>
-                            <?php } ?>
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                                    <ul class="list-inline m-0">
+                                        <li class="mb-3 d-flex justify-content-between align-items-center">
+                                            <a class="text-dark"
+                                                href="detail_kategori.php?id_kategori=<?php echo $data["id_kategori"] ?>"><i
+                                                    class="fa fa-angle-right text-primary mr-2"></i>
+                                                <?php echo $data["nama_kategori"] ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <?php } ?>
                             <?php } ?>
                         </div>
                     </div>
                     <!-- Category List End -->
-    
+
                     <!-- Tag Cloud -->
                     <div class="mb-5">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
@@ -256,27 +331,36 @@
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.php" class="navbar-brand">
+                <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian bisa menikmati liburan tanpa khawatir.</p>
+                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
+                    vero lorem dolor dolor</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="destination.php"><i
+                            class="fa fa-angle-right mr-2"></i>Destination</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
-                    <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
-                    <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="developer.php"><i
+                            class="fa fa-angle-right mr-2"></i>Developer</a>
+                    <a class="text-white-50 mb-2" href="testimonial.php"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                     <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
@@ -284,11 +368,15 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="destination.php"><i
+                            class="fa fa-angle-right mr-2"></i>Destination</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
-                    <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
-                    <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="developer.php"><i
+                            class="fa fa-angle-right mr-2"></i>Developer</a>
+                    <a class="text-white-50 mb-2" href="testimonial.php"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                     <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
@@ -300,14 +388,15 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; Edu-Travel
+                <p class="m-0 text-white-50">Copyright &copy; <a href="index.php">Edu-Travel</a>.
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
-                <p class="m-0 text-white-50">Designed by Developer
+                <p class="m-0 text-white-50">Designed by <a href="developer.php">Developer</a>
                 </p>
             </div>
         </div>
@@ -338,16 +427,33 @@
 
 <!-- Validasi menggunakan javascript-->
 <script>
-    function validateForm(){
+    function validateForm() {
         var nama = document.getElementById('nama').value;
         var pesan = document.getElementById('pesan').value;
 
-        if(nama == "" || pesan == ""){
+        if (nama == "" || pesan == "") {
             alert('Form tidak boleh kosong!');
             return false;
         }
         return true;
     }
+</script>
+
+<!-- JavaScript untuk Like -->
+<script>
+    // Fungsi untuk menangani tombol Like
+    function likeDestination() {
+        // Submit form saat tombol Like ditekan
+        document.getElementById("likeForm").submit();
+    }
+
+    // Menambahkan event listener ke tombol Like
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("likeForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Menghentikan perilaku default form
+            likeDestination();
+        });
+    });
 </script>
 
 </html>

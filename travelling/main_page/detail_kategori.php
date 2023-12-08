@@ -1,3 +1,17 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Check if user is logged in
+if (isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    // If user is not logged in, redirect to login page
+    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
+    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +28,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -89,6 +103,29 @@
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <?php
+                        if (isset($loggedInUsername)) {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $loggedInUsername; ?>
+                                </a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
+                                <div class="dropdown-menu border-0 rounded-0 m-0">
+                                    <a href="logout.php" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -124,40 +161,49 @@
             </div>
             <div class="row">
                 <?php
-                    include '../koneksi.php';
+                include '../koneksi.php';
 
-                    $id_terima = $_GET['id_kategori'];
-                    $query = mysqli_query($koneksi, "SELECT * FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where d.id_kategori=$id_terima;");
+                $id_terima = $_GET['id_kategori'];
+                $query = mysqli_query($koneksi, "SELECT * FROM `kategori` as k JOIN `destinasi` as d ON k.id_kategori=d.id_kategori where d.id_kategori=$id_terima;");
 
-                    if(mysqli_num_rows($query)>0){
-                    while($data = mysqli_fetch_array($query)){
-                ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i><?php echo $data["nama_kategori"] ?></small>
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?php echo $data["lokasi"] ?></small>
-                            </div>
-                            <a class="h5 text-decoration-none" href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>"><?php echo $data["nama_destinasi"] ?></a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
-                                    <h5 class="m-0"><?php echo "Rp. " . number_format($data["harga"],0,',','.') ?></h5>
+                if (mysqli_num_rows($query) > 0) {
+                    while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="<?php echo $data["gambar"] ?>" style="width:350px; height:250px;">
+                                <div class="p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <small class="m-0"><i class="fas fa-tag text-primary mr-2"></i>
+                                            <?php echo $data["nama_kategori"] ?>
+                                        </small>
+                                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                            <?php echo $data["lokasi"] ?>
+                                        </small>
+                                    </div>
+                                    <a class="h5 text-decoration-none"
+                                        href="detail_destination.php?id_destinasi=<?php echo $data["id_destinasi"] ?>">
+                                        <?php echo $data["nama_destinasi"] ?>
+                                    </a>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="m-0"><i class="fas text-primary mr-2"> HTM :</i></h5>
+                                            <h5 class="m-0">
+                                                <?php echo "Rp. " . number_format($data["harga"], 0, ',', '.') ?>
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <?php } ?>
+                    <?php } ?>
                 <?php } ?>
             </div>
         </div>
     </div>
     <!-- Destination End -->
 
-    
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
@@ -165,24 +211,33 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian bisa menikmati liburan tanpa khawatir.</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian
+                    bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="destination.php"><i
+                            class="fa fa-angle-right mr-2"></i>Destination</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
-                    <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
-                    <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="developer.php"><i
+                            class="fa fa-angle-right mr-2"></i>Developer</a>
+                    <a class="text-white-50 mb-2" href="testimonial.php"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                     <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
@@ -190,11 +245,15 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="about.php"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="destination.php"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="reservation.php"><i class="fa fa-angle-right mr-2"></i>Reservation</a>
+                    <a class="text-white-50 mb-2" href="destination.php"><i
+                            class="fa fa-angle-right mr-2"></i>Destination</a>
+                    <a class="text-white-50 mb-2" href="reservation.php"><i
+                            class="fa fa-angle-right mr-2"></i>Reservation</a>
                     <a class="text-white-50 mb-2" href="category.php"><i class="fa fa-angle-right mr-2"></i>Category</a>
-                    <a class="text-white-50 mb-2" href="developer.php"><i class="fa fa-angle-right mr-2"></i>Developer</a>
-                    <a class="text-white-50 mb-2" href="testimonial.php"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    <a class="text-white-50 mb-2" href="developer.php"><i
+                            class="fa fa-angle-right mr-2"></i>Developer</a>
+                    <a class="text-white-50 mb-2" href="testimonial.php"><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a>
                     <a class="text-white-50 mb-2" href="contact.php"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                 </div>
             </div>
@@ -206,7 +265,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white-50">Copyright &copy; Edu-Travel
