@@ -171,11 +171,11 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                            <a class="btn btn-square btn-outline-primary rounded-circle me-2" href="https://www.facebook.com"><i
                                         class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href="https://www.twitter.com"><i
                                         class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href="https://www.instagram.com"><i
                                         class="fab fa-instagram"></i></a>
                             </div>
                         </div>
@@ -197,12 +197,12 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -223,12 +223,12 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -247,14 +247,14 @@ if (isset($_SESSION['username'])) {
                                 <h4>Fawwaz Aziz</h4>
                                 <span>Anggota</span>
                             </div>
-                            <p>Hobi : Membaca dan Fotografer</p>
+                            <p>Hobi : Membaca</p>
                             <div class="d-flex">
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary rounded-circle me-2" href=""><i
-                                        class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary rounded-circle me-2"
+                                    href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
