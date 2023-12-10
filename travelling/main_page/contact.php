@@ -75,6 +75,7 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
+
     <!-- Topbar End -->
 
 
@@ -159,7 +160,7 @@ if (isset($_SESSION['username'])) {
                 include '../koneksi.php';
                 ?>
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
-                <h2>Silahkan masukan kritik dan saran disini</h2>
+                <h2>Silahkan Masukan Kritik dan Saran</h2>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -196,6 +197,46 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
+    <div class="row g-4 align-items-center">
+        <div class="col-12">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p class="mb-0">Daerah Istimewa Yogyakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                        <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p class="mb-0">edutravel@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                        <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                        <div>
+                            <h4>Nomor Telepon</h4>
+                            <p class="mb-0">+622 540 12</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.895067702862!2d110.4116880466446!3d-7.766078940588993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a596e17c2145b%3A0x61fc4818e3a1dbc5!2sPT%20Talenta%20Sinergi%20Group!5e0!3m2!1sen!2sid!4v1702215828567!5m2!1sen!2sid"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact End -->
 
 
@@ -206,7 +247,8 @@ if (isset($_SESSION['username'])) {
                 <a href="index.php" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang
+                    kompetitif
                     kalian bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
