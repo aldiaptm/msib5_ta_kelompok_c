@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 03:55 PM
+-- Generation Time: Dec 11, 2023 at 05:31 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(25) NOT NULL,
   `profile` varchar(255) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `profile`, `username`, `password`) VALUES
-(1, 'Admin EDU-TRAVEL', 'img/adminprofile.png', 'admin', 'admin');
+(1, 'Admin EDU-TRAVEL', 'img/adminprofile.png', 'admin', '$2y$10$1ZZ0AbEu3TYcF3mbYWGHZO9C/Hn1OX4kuZalSFtSiTMdPXSiknD1i');
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal
 CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `telepon` varchar(13) NOT NULL
@@ -86,10 +86,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_customer`, `username`, `password`, `nama`, `email`, `telepon`) VALUES
-(1, 'tono', 'tono', 'Tono Topan', 'tono@gmail.com', '089742214221'),
-(2, 'tini', 'tini', 'Tini Tita', 'tini@gmail.com', '089741241241'),
-(6, 'maman', 'maman', 'Maman Racing Team', 'maman12@gmail.co.id', '0812381291241'),
-(7, 'enjang', 'enjang', 'Enjang', 'enjang16@gmail.com', '08129841814');
+(1, 'tono', '$2y$10$Y9IdRLUw6TnnGwllRfaEqOh0bj1M0nnPQTCmjP6HiJe7FolacalBW', 'Tono Topan', 'tono@gmail.com', '089742214221'),
+(2, 'tini', '$2y$10$Z2SZLUVZEu9nz4GtdPg.GO2R1STTE.CNko7cmhjrm2W6hW5Ig7jQW', 'Tini Tita', 'tini@gmail.com', '089741241241'),
+(6, 'maman', '$2y$10$sv1//h99rVVPaMWlHBUTbeYj5IHHcznLp.XY/3M1bDRuaFt8QG3Au', 'Maman Racing Team', 'maman12@gmail.co.id', '0812381291241'),
+(7, 'enjang', '$2y$10$jcNFrp6Gf1d3dnnyDipnjemBIfpDaU4OC8JHkugHzLdqg.Iv9BW/q', 'Enjang', 'enjang16@gmail.com', '08129841814'),
+(8, 'jujun', '$2y$10$tlLt/W4RAe2.kE3Z3PeX8evgJxgJG2Vz6oWNa6ZuZsZUl2yYdmmqq', 'Jujun Junaedi', 'jujun16@gmail.com', '081283824812'),
+(9, 'vino', '$2y$10$4QE1s27/E.RwzJijN0PEk.1RwxpF/fhm06BuYYXYtIs0uHQFGbOjq', 'Vino G Bastian', 'vino@gmail.com', '081238182384'),
+(10, 'amar', '$2y$10$fSRSgXhptaMWM.9vh7/gLOP1QaytHO/ABXZNX9Q1PDk7FZTtT4GFu', 'Amar Zoni', 'amarz@gmail.com', '0812399237134'),
+(11, 'indra', '$2y$10$gUSqxIm1k3AHOamMqnUf4ODLOjFa4AfQImQqAbSO5KKPlPIDUHMWu', 'Indra Brugman', 'indra@gmail.com', '0897471274127');
 
 -- --------------------------------------------------------
 
@@ -108,12 +112,13 @@ CREATE TABLE `customer_like` (
 --
 
 INSERT INTO `customer_like` (`id_like`, `id_customer`, `id_destinasi`) VALUES
-(4, 6, 2),
-(5, 6, 1),
-(6, 6, 4),
-(7, 7, 12),
-(8, 7, 8),
-(9, 1, 1);
+(12, 7, 1),
+(13, 1, 2),
+(14, 9, 8),
+(15, 9, 1),
+(16, 10, 1),
+(17, 11, 5),
+(18, 9, 5);
 
 -- --------------------------------------------------------
 
@@ -234,7 +239,8 @@ CREATE TABLE `reservasi` (
 INSERT INTO `reservasi` (`id_reservasi`, `id_customer`, `reservasi_tanggal`, `id_destinasi`, `id_fasilitas`, `id_pembayaran`) VALUES
 (5, 2, '2023-11-29 07:06:26', 1, 1, 3),
 (8, 1, '2023-11-29 04:24:13', 2, 2, 4),
-(9, 2, '2023-11-29 08:25:22', 3, 3, 2);
+(9, 2, '2023-11-29 08:25:22', 3, 3, 2),
+(14, 9, '2023-12-11 10:48:44', 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -349,13 +355,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `customer_like`
 --
 ALTER TABLE `customer_like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `destinasi`
@@ -385,7 +391,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `ulasan`
