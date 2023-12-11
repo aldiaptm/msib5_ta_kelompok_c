@@ -49,6 +49,14 @@
                 <form style="margin-top: 20px" action="proses_tambah.php" method="post" enctype="multipart/form-data"
                     onsubmit="return validateForm();">
                     <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="text" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group">
                         <label for="nama">Nama:</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                     </div>

@@ -1,15 +1,5 @@
 <?php
-session_start();
 include '../koneksi.php';
-
-// Check if user is logged in
-if (isset($_SESSION['username'])) {
-    $loggedInUsername = $_SESSION['username'];
-} else {
-    // If user is not logged in, redirect to login page
-    header("Location: login.php"); // Ganti "login.php" dengan halaman login yang sesuai
-    exit(); // Pastikan tidak ada kode HTML atau PHP yang dieksekusi setelah header
-}
 ?>
 
 <!DOCTYPE html>
@@ -104,29 +94,6 @@ if (isset($_SESSION['username'])) {
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
-                        <?php
-                        if (isset($loggedInUsername)) {
-                            ?>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                    <?php echo $loggedInUsername; ?>
-                                </a>
-                                <div class="dropdown-menu border-0 rounded-0 m-0">
-                                    <a href="logout.php" class="dropdown-item">Logout</a>
-                                </div>
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
-                                <div class="dropdown-menu border-0 rounded-0 m-0">
-                                    <a href="logout.php" class="dropdown-item">Logout</a>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
                     </div>
                 </div>
             </nav>
@@ -166,6 +133,20 @@ if (isset($_SESSION['username'])) {
                     <div class="contact-form bg-white" style="padding: 30px;">
                         <div id="success"></div>
                         <form method="post" action="proses_tambah_registrasi.php">
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4" id="username" name="username"
+                                        placeholder="Masukan Username" required="required"
+                                        data-validation-required-message="Silahkan masukan username" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <input type="password" class="form-control p-4" id="exampleInputPassword" name="password"
+                                        placeholder="Masukan Password" required="required"
+                                        data-validation-required-message="Silahkan masukan password" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
                                     <input type="text" class="form-control p-4" id="nama" name="nama"

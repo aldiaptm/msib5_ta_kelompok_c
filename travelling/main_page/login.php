@@ -34,50 +34,99 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 </html>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Login - EDU-TRAVEL</title>
-    <link rel="icon" type="image/x-icon" href="img/logo-title.png">
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login - EDU TRAVEL</title>
+    <link rel="icon" type="image/x-icon" href="../admin_page/img/logo-title.png">
+
+    <!-- Custom fonts for this template-->
+    <link href="../admin_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../admin_page/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container mt-5">
+<body class="bg-gradient-success">
+
+    <div class="container">
+
+        <!-- Outer Row -->
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Login</div>
-                    <div class="card-body">
+
+            <div class="col-xl-6 col-lg-6 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
                         <?php if (isset($error_message)): ?>
                             <p style="color: red;">
                                 <?php echo $error_message; ?>
                             </p>
                         <?php endif; ?>
-                        <form method="POST" action="proses_login.php">
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang di <br>
+                                            EDU-TRAVEL</h1>
+                                    </div>
+                                    <form class="user" action="proses_login.php" method="post">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Username" name="username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password" name="password"
+                                                required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-user btn-block">
+                                            Login
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    <h6>Belum memiliki akun? &nbsp <a href="registrasi.php" style="text-decoration: none;">Registrasi</a></h6>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../admin_page/vendor/jquery/jquery.min.js"></script>
+    <script src="../admin_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../admin_pagevendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../admin_page/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+
 </body>
 
 </html>

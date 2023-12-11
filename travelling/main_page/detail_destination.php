@@ -215,6 +215,13 @@ if (isset($_SESSION['username'])) {
                             <form id="likeForm" action="proses_like_destinasi.php" method="post">
                                 <input type="hidden" name="id_customer" value="<?php echo $id_customer; ?>">
                                 <input type="hidden" name="id_destinasi" value="<?php echo $id_destinasi; ?>">
+                                <?php
+                                $query = mysqli_query($koneksi, "SELECT COUNT(id_like) as jumlah FROM `customer_like` where id_destinasi=$id_destinasi;");
+                                $data = mysqli_fetch_array($query); ?>
+                                <p> Disukai oleh
+                                    <b><?php echo $data["jumlah"] ?></b>
+                                     orang
+                                </p>
                                 <button type="submit" class="btn btn-primary">Like <i
                                         class="fas fa-thumbs-up"></i></button>
                             </form>

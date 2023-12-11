@@ -98,6 +98,7 @@
                         <a class="collapse-item" href="fasilitas/fasilitas.php">Fasilitas</a>
                         <a class="collapse-item" href="kategori/kategori.php">Kategori</a>
                         <a class="collapse-item" href="reservasi/reservasi.php">Reservasi</a>
+                        <a class="collapse-item" href="disukai.php">Destinasi Berdasarkan Like</a>
                     </div>
                 </div>
             </li>

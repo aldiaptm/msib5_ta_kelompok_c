@@ -140,9 +140,10 @@ if (isset($_SESSION['username'])) {
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Mari Kita Jelajahi Indonesia Bersama</h1>
-                            <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan
-                                pemesanan.</h6>
+                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
+                            <h6 style="color: white; margin-top: 50px;">Pilih lah tempat travelling yang anda inginkan,
+                                kami menyediakan beberapa fasilitas yang tentunya dapat menyesuaikan dengan budget yang
+                                anda miliki.</h6>
                         </div>
                     </div>
                 </div>
@@ -152,9 +153,10 @@ if (isset($_SESSION['username'])) {
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Edu-Travel</h4>
                             <h1 class="display-3 text-white mb-md-4">Jelajahi Tempat Wisata Bersama Kami</h1>
-                            <a href="registrasi.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Registrasi</a>
-                            <h6 style="color: white; margin-top: 50px;">Harap registrasi dahulu sebelum melakukan
-                                pemesanan.</h6>
+                            <a href="reservation.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Pesan Sekarang</a>
+                            <h6 style="color: white; margin-top: 50px;">Pilih lah tempat travelling yang anda inginkan,
+                                kami menyediakan beberapa fasilitas yang tentunya dapat menyesuaikan dengan budget yang
+                                anda miliki.</h6>
                         </div>
                     </div>
                 </div>

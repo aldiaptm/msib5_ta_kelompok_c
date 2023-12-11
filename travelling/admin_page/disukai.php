@@ -9,21 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Fasilitas</title>
+    <title>Data Destinasi Berdasarkan Like</title>
     <link rel="icon" type="image/x-icon" href="../img/logo-title.png">
 
     <!-- Custom fonts for this template -->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <?php
     session_start();
@@ -38,7 +38,7 @@
             session_destroy();
             echo "<script>
                 if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
-                    window.location.href='../../login.php';
+                    window.location.href='../login.php';
                 } else {
                 // Redirect atau lakukan tindakan tambahan jika pengguna memilih untuk tidak login lagi.
                     }
@@ -48,7 +48,7 @@
     } else {
         echo "<script>
         if(confirm('Sesi Anda telah habis. Apakah Anda ingin login kembali?')) {
-            window.location.href='../../login.php';
+            window.location.href='../login.php';
         } else {
         // Redirect atau lakukan tindakan tambahan jika pengguna memilih untuk tidak login lagi.
             }
@@ -72,7 +72,7 @@
             <!-- Sidebar - Brand -->
             <br>
             <a class="sidebar-brand d-flex align-items-center" href="../index.php">
-                <img src="../img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
+                <img src="img/adminprofile.png" style="width: 60px; border-radius: 50%; margin-right: 20px;">
                 <div class="sidebar-brand-text">Admin <br>Edu-Travel</div>
             </a>
             <br>
@@ -82,7 +82,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="../index.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -95,18 +95,18 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../customer/customer.php">Customer</a>
-                        <a class="collapse-item" href="fasilitas.php">Fasilitas</a>
-                        <a class="collapse-item" href="../kategori/kategori.php">Kategori</a>
-                        <a class="collapse-item" href="../reservasi/reservasi.php">Reservasi</a>
-                        <a class="collapse-item" href="../disukai.php">Destinasi Berdasarkan Like</a>
+                        <a class="collapse-item" href="customer/customer.php">Customer</a>
+                        <a class="collapse-item" href="fasilitas/fasilitas.php">Fasilitas</a>
+                        <a class="collapse-item" href="kategori/kategori.php">Kategori</a>
+                        <a class="collapse-item" href="reservasi/reservasi.php">Reservasi</a>
+                        <a class="collapse-item" href="disukai.php">Destinasi Berdasarkan Like</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="../tables.php">
+                <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Destinasi</span></a>
             </li>
@@ -136,41 +136,32 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4 mt-5">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <a class="btn btn-success" style="margin-bottom:10px; margin-top:10px"
-                                    href="../index.php">Home</a>
-                                <a class="btn btn-primary" style="margin-bottom:10px; margin-top:10px"
-                                    href="tambah.php">Tambah Data</a>
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <div class="table">
+                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Tipe Fasilitas</th>
-                                            <th>Keterangan</th>
-                                            <th style="width: 80px;">Aksi</th>
+                                            <th>Nama Destinasi</th>
+                                            <th>Gambar Destinasi</th>
+                                            <th>Jumlah Disukai</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require_once '../../koneksi.php';
-                                        $sql = "SELECT * FROM fasilitas";
+                                        require_once '../koneksi.php';
+                                        $sql = "SELECT c.id_destinasi, COUNT(c.id_destinasi) as jumlahlike, d.nama_destinasi, d.gambar FROM customer_like as c join destinasi as d on c.id_destinasi=d.id_destinasi group by id_destinasi order by jumlahlike desc";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <?= $data['tipe']; ?>
+                                                    <?= $data['nama_destinasi']; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['keterangan']; ?>
+                                                    <img src="<?= $data['gambar']; ?>" alt="<?= $data['gambar']; ?>"
+                                                        style="width:200px;">
                                                 </td>
                                                 <td>
-                                                    <a href="edit.php?id_fasilitas=<?php echo $data["id_fasilitas"] ?>"
-                                                        class="label label-warning"> Edit
-                                                    </a>
-                                                    &nbsp;
-                                                    <a href="hapus.php?id_fasilitas=<?php echo $data["id_fasilitas"] ?>"
-                                                        class="label label-danger"> Delete
-                                                    </a>
+                                                    <?= $data['jumlahlike']; ?>
                                                 </td>
                                             </tr>
 
@@ -206,21 +197,21 @@
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
