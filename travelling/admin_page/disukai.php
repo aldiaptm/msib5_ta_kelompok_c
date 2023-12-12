@@ -168,7 +168,7 @@
                                     <tbody>
                                         <?php
                                         require_once '../koneksi.php';
-                                        $sql = "SELECT c.id_destinasi, COUNT(c.id_destinasi) as jumlahlike, d.nama_destinasi, d.gambar FROM customer_like as c join destinasi as d on c.id_destinasi=d.id_destinasi group by id_destinasi order by jumlahlike desc";
+                                        $sql = "SELECT c.id_destinasi, COUNT(c.id_destinasi) as jumlahlike, d.nama_destinasi, d.gambar FROM customer_like as c join destinasi as d on c.id_destinasi=d.id_destinasi group by id_destinasi";
                                         $query = mysqli_query($koneksi, $sql);
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
