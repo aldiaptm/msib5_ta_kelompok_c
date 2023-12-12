@@ -168,7 +168,7 @@
                                                     <?= $data['nama_destinasi']; ?>
                                                 </td>
                                                 <td><img src="<?= $data['gambar']; ?>" alt="<?= $data['gambar']; ?>"
-                                                        style="width:100px"></td>
+                                                        style="width:100px; height: 100px;"></td>
                                                 <td>
                                                     <?= $data['lokasi']; ?>
                                                 </td>

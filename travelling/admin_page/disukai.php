@@ -31,17 +31,30 @@
     <script>
         $(document).ready(function () {
             $('#dataTable').DataTable({
-                "order": [[2, "desc"]], // Urutkan berdasarkan kolom pertama (jumlah like) secara descending
-                "paging": true, // Aktifkan paging
-                "searching": true, // Aktifkan fitur pencarian
-                "info": true, // Tampilkan informasi paging
-                "lengthChange": true // Aktifkan opsi perubahan panjang tampilan
+                "order": [[2, "desc"]],
+                "paging": true,
+                "searching": true,
+                "info": true,
+                "lengthChange": true
             });
         });
     </script>
     <style>
         table {
-            border: 1px solid black;
+            border: 1px solid #f2f2f2;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #f2f2f2;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 
@@ -159,7 +172,7 @@
                             <div class="table">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr style="text-align: center;">
+                                        <tr style="font-size: 12px">
                                             <th>Nama Destinasi</th>
                                             <th>Gambar Destinasi</th>
                                             <th>Jumlah Disukai</th>
@@ -173,14 +186,14 @@
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
-                                                <td>
+                                                <td style="font-size: 12px; padding-top: 120px">
                                                     <?= $data['nama_destinasi']; ?>
                                                 </td>
-                                                <td>
+                                                <td style="text-align: center">
                                                     <img src="<?= $data['gambar']; ?>" alt="<?= $data['gambar']; ?>"
-                                                        style="width:200px;">
+                                                        style="width:250px; height: 250px">
                                                 </td>
-                                                <td>
+                                                <td style="font-size: 18px; padding: 100px; padding-left:px; width: 50px">
                                                     <?= $data['jumlahlike']; ?>
                                                 </td>
                                             </tr>
