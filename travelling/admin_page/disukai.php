@@ -23,7 +23,27 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <!-- <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+    <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                "order": [[2, "desc"]], // Urutkan berdasarkan kolom pertama (jumlah like) secara descending
+                "paging": true, // Aktifkan paging
+                "searching": true, // Aktifkan fitur pencarian
+                "info": true, // Tampilkan informasi paging
+                "lengthChange": true // Aktifkan opsi perubahan panjang tampilan
+            });
+        });
+    </script>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+    </style>
 
     <?php
     session_start();
@@ -137,7 +157,7 @@
                     <div class="card shadow mb-4 mt-5">
                         <div class="card-body">
                             <div class="table">
-                                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr style="text-align: center;">
                                             <th>Nama Destinasi</th>
