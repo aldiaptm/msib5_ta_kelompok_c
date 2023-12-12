@@ -91,16 +91,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 placeholder="Username" name="username" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" name="password"
-                                                required>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Password" name="password"
+                                                    required>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="show-hide-password">
+                                                        <i class="fa fa-eye" id="password-icon"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-success btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
                                     <hr>
-                                    <h6>Belum memiliki akun? &nbsp <a href="registrasi.php" style="text-decoration: none;">Registrasi</a></h6>
+                                    <h6>Belum memiliki akun? &nbsp <a href="registrasi.php"
+                                            style="text-decoration: none;">Registrasi</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -122,6 +130,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Custom scripts for all pages-->
     <script src="../admin_page/js/sb-admin-2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Mengatur fungsi untuk menampilkan/menyembunyikan password saat ikon mata diklik
+            $("#show-hide-password").click(function () {
+                var passwordField = $("#exampleInputPassword");
+                var passwordIcon = $("#password-icon");
+
+                // Mengubah tipe input password ke text atau sebaliknya
+                if (passwordField.attr("type") === "password") {
+                    passwordField.attr("type", "text");
+                    passwordIcon.removeClass("fa-eye").addClass("fa-eye-slash");
+                } else {
+                    passwordField.attr("type", "password");
+                    passwordIcon.removeClass("fa-eye-slash").addClass("fa-eye");
+                }
+            });
+        });
+    </script>
 
 </body>
 

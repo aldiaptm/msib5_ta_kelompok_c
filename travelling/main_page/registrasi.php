@@ -141,9 +141,16 @@ include '../koneksi.php';
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="password" class="form-control p-4" id="exampleInputPassword" name="password"
-                                        placeholder="Masukan Password" required="required"
-                                        data-validation-required-message="Silahkan masukan password" />
+                                    <div class="input-group">
+                                        <input type="password" class="form-control p-4" id="exampleInputPassword"
+                                            name="password" placeholder="Masukan Password" required="required"
+                                            data-validation-required-message="Silahkan masukan password" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="show-hide-password">
+                                                <i class="fa fa-eye" id="password-icon"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -277,6 +284,24 @@ include '../koneksi.php';
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Mengatur fungsi untuk menampilkan/menyembunyikan password saat ikon mata diklik
+            $("#show-hide-password").click(function () {
+                var passwordField = $("#exampleInputPassword");
+                var passwordIcon = $("#password-icon");
+
+                // Mengubah tipe input password ke text atau sebaliknya
+                if (passwordField.attr("type") === "password") {
+                    passwordField.attr("type", "text");
+                    passwordIcon.removeClass("fa-eye").addClass("fa-eye-slash");
+                } else {
+                    passwordField.attr("type", "password");
+                    passwordIcon.removeClass("fa-eye-slash").addClass("fa-eye");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
