@@ -7,6 +7,7 @@
     <title>Tambah Customer</title>
     <link rel="icon" type="image/x-icon" href="../img/logo-title.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
     <?php
     session_start();
@@ -54,7 +55,12 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="text" class="form-control" id="password" name="password">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password">
+                            <span class="input-group-addon" id="eye-icon">
+                                <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="nama">Nama:</label>
@@ -73,8 +79,26 @@
             </div>
         </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#togglePassword").click(function () {
+                var passwordField = $("#password");
+                var passwordFieldType = passwordField.attr("type");
+                if (passwordFieldType === "password") {
+                    passwordField.attr("type", "text");
+                } else {
+                    passwordField.attr("type", "password");
+                }
+
+                // Add/remove line-through effect
+                $("#togglePassword").toggleClass("fa-eye fa-eye-slash");
+            });
+        });
+    </script>
 </body>
 
 </html>

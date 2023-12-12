@@ -42,6 +42,7 @@ if (mysqli_num_rows($queryCheckLike) == 0) {
     }
 } else {
     // Jika customer sudah pernah like, mungkin tampilkan pesan atau lakukan sesuatu yang sesuai kebutuhan
-    echo "Anda sudah menyukai destinasi ini sebelumnya.";
+    echo '<script>alert("Anda telah menyukai destinasi tersebut!"); window.location.href = "detail_destination.php?id_destinasi=' . $id_destinasi . '";</script>';
+    exit();
 }
 ?>

@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="admin_page/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="admin_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="bg-gradient-success">
@@ -47,10 +48,15 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Username" name="username" required>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group input-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" name="password"
                                                 required>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-eye" id="togglePassword"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-success btn-user btn-block">
                                             Login
@@ -79,9 +85,16 @@
     <!-- Custom scripts for all pages-->
     <script src="admin_page/js/sb-admin-2.min.js"></script>
 
-</body>
+    <script>
+        const passwordInput = document.getElementById('exampleInputPassword');
+        const togglePasswordButton = document.getElementById('togglePassword');
 
-</html>
+        togglePasswordButton.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePasswordButton.classList.toggle('fa-eye-slash');
+        });
+    </script>
 
 </body>
 
