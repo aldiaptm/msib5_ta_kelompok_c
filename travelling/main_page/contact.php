@@ -197,45 +197,48 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
-    <div class="row g-4 align-items-center">
-        <div class="col-12">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
-                        <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Alamat</h4>
-                            <p class="mb-0">Daerah Istimewa Yogyakarta</p>
+    <center>
+        <div class="row g-4 align-items-center" style="width: 80%">
+            <div class="col-12">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p class="mb-0">Daerah Istimewa Yogyakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                            <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p class="mb-0">edutravel@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
+                            <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p class="mb-0">+622 540 12</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
-                        <i class="fas fa-envelope fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p class="mb-0">edutravel@gmail.com</p>
-                        </div>
-                    </div>
+                <br><br>
+                <div class="text-center mt-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.895067702862!2d110.4116880466446!3d-7.766078940588993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a596e17c2145b%3A0x61fc4818e3a1dbc5!2sPT%20Talenta%20Sinergi%20Group!5e0!3m2!1sen!2sid!4v1702215828567!5m2!1sen!2sid"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="col-lg-4">
-                    <div class="d-inline-flex bg-light w-100 border border-primary p-4 rounded">
-                        <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Nomor Telepon</h4>
-                            <p class="mb-0">+622 540 12</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15812.895067702862!2d110.4116880466446!3d-7.766078940588993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a596e17c2145b%3A0x61fc4818e3a1dbc5!2sPT%20Talenta%20Sinergi%20Group!5e0!3m2!1sen!2sid!4v1702215828567!5m2!1sen!2sid"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-    </div>
+    </center>
 
     <!-- Contact End -->
 

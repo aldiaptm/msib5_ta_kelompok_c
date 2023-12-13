@@ -39,14 +39,7 @@ if (isset($_SESSION['username'])) {
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <?php
-    // Generate Nonce
-    $nonce = uniqid();
 
-    // Tambahkan nonce ke URL di Facebook SDK
-    ?>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0&appId=843220474218882&autoLogAppEvents=1&status=1&cookie=1&oauth=1&nonce=<?php echo $nonce; ?>&accessToken=9ee6a140d64b70171b2e2879789ac516"></script>
 </head>
 
 <body>
@@ -236,14 +229,7 @@ if (isset($_SESSION['username'])) {
                                     Like <i class="fas fa-thumbs-up"></i>
                                 </button>
 
-                                <div class="bg-white mb-3 mt-3" style="padding: 0px;">
-                                    <div class="fb-share-button" data-layout="button" data-size="large"
-                                        data-href="localhost/msib5_ta_kelompok_c/travelling/main_page/detail_destination.php?id_destinasi=<?php echo $id_destinasi; ?>">
-                                        <a target="_blank"
-                                            href="https://www.facebook.com/sharer/sharer.php?u=localhost/msib5_ta_kelompok_c/travelling/main_page/detail_destination.php?id_destinasi=<?php echo $id_destinasi; ?>&amp;src=sdkpreparse"
-                                            class="fb-xfbml-parse-ignore">Share To Facebook</a>
-                                    </div>
-                                </div>
+                                <button onclick="shareToFacebook()" class="button btn-primary" style="height: 37px">Share to Facebook</button>
                             </form>
                         </div>
                         <!-- Like Button End -->
@@ -450,6 +436,36 @@ if (isset($_SESSION['username'])) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        // Load the Facebook SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Initialize the Facebook SDK with your App ID
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '843220474218882',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+
+        // Your share button function
+        function shareToFacebook() {
+            FB.ui({
+                method: 'share',
+                href: 'https://edu-travel.com/page-to-share'
+            }, function (response) { });
+        }
+    </script>
+
 </body>
 
 <!-- Validasi menggunakan javascript-->
@@ -482,18 +498,5 @@ if (isset($_SESSION['username'])) {
         });
     });
 </script>
-<?php
-// Mendapatkan nonce dari permintaan
-$receivedNonce = $_GET['nonce']; // atau $_POST['nonce'] tergantung metode permintaan
-
-// Membandingkan dengan nilai yang dihasilkan sebelumnya
-if ($receivedNonce === $nonce) {
-    // Nonce valid, lanjutkan pemrosesan
-    // ...
-} else {
-    // Nonce tidak valid, tangani kesalahan atau tolak permintaan
-    // ...
-}
-?>
 
 </html>
