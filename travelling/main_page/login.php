@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login - EDU TRAVEL</title>
-    <link rel="icon" type="image/x-icon" href="../admin_page/img/logo-title.png">
+    <title>Login Customer - EDU TRAVEL</title>
+    <link rel="icon" type="image/x-icon" href="img/logo-title.png">
 
     <!-- Custom fonts for this template-->
     <link href="../admin_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -71,6 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .col-lg-12 {
             background-color: whitesmoke;
+        }
+
+        button {
+            width: 100px !important;
         }
     </style>
 </head>
@@ -96,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang di <br>
+                                        <h1 class="text-black">SELAMAT DATANG DI <br>
                                             EDU-TRAVEL</h1>
                                     </div>
                                     <form class="user" action="proses_login.php" method="post">
@@ -117,9 +121,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-success btn-user btn-block">
-                                            Login
-                                        </button>
+                                        <center>
+                                            <button type="submit" class="btn btn-success btn-user btn-block">
+                                                Login
+                                            </button>
+                                        </center>
                                     </form>
                                     <hr>
                                     <h6>Belum memiliki akun? &nbsp <a href="registrasi.php"

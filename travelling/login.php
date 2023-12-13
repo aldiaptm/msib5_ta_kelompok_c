@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login - EDU TRAVEL</title>
+    <title>Login Admin - EDU TRAVEL</title>
     <link rel="icon" type="image/x-icon" href="admin_page/img/logo-title.png">
 
     <!-- Custom fonts for this template-->
@@ -21,6 +21,13 @@
     <!-- Custom styles for this template-->
     <link href="admin_page/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="admin_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        button {
+            width: 100px !important;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-success">
@@ -58,9 +65,11 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-success btn-user btn-block">
-                                            Login
-                                        </button>
+                                        <center>
+                                            <button type="submit" class="btn btn-success btn-user btn-block">
+                                                Login
+                                            </button>
+                                        </center>
                                     </form>
                                     <hr>
                                 </div>
