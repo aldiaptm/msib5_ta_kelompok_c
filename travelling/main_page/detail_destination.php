@@ -39,6 +39,14 @@ if (isset($_SESSION['username'])) {
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <?php
+    // Generate Nonce
+    $nonce = uniqid();
+
+    // Tambahkan nonce ke URL di Facebook SDK
+    ?>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0&appId=843220474218882&autoLogAppEvents=1&status=1&cookie=1&oauth=1&nonce=<?php echo $nonce; ?>&accessToken=9ee6a140d64b70171b2e2879789ac516"></script>
 </head>
 
 <body>
@@ -82,7 +90,7 @@ if (isset($_SESSION['username'])) {
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">EDU</span>TRAVEL</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -219,11 +227,23 @@ if (isset($_SESSION['username'])) {
                                 $query = mysqli_query($koneksi, "SELECT COUNT(id_like) as jumlah FROM `customer_like` where id_destinasi=$id_destinasi;");
                                 $data = mysqli_fetch_array($query); ?>
                                 <p> Disukai oleh
-                                    <b><?php echo $data["jumlah"] ?></b>
-                                     orang
+                                    <b>
+                                        <?php echo $data["jumlah"] ?>
+                                    </b>
+                                    orang
                                 </p>
-                                <button type="submit" class="btn btn-primary">Like <i
-                                        class="fas fa-thumbs-up"></i></button>
+                                <button type="submit" class="btn btn-primary">
+                                    Like <i class="fas fa-thumbs-up"></i>
+                                </button>
+
+                                <div class="bg-white mb-3 mt-3" style="padding: 0px;">
+                                    <div class="fb-share-button" data-layout="button" data-size="large"
+                                        data-href="localhost/msib5_ta_kelompok_c/travelling/main_page/detail_destination.php?id_destinasi=<?php echo $id_destinasi; ?>">
+                                        <a target="_blank"
+                                            href="https://www.facebook.com/sharer/sharer.php?u=localhost/msib5_ta_kelompok_c/travelling/main_page/detail_destination.php?id_destinasi=<?php echo $id_destinasi; ?>&amp;src=sdkpreparse"
+                                            class="fb-xfbml-parse-ignore">Share To Facebook</a>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <!-- Like Button End -->
@@ -462,5 +482,18 @@ if (isset($_SESSION['username'])) {
         });
     });
 </script>
+<?php
+// Mendapatkan nonce dari permintaan
+$receivedNonce = $_GET['nonce']; // atau $_POST['nonce'] tergantung metode permintaan
+
+// Membandingkan dengan nilai yang dihasilkan sebelumnya
+if ($receivedNonce === $nonce) {
+    // Nonce valid, lanjutkan pemrosesan
+    // ...
+} else {
+    // Nonce tidak valid, tangani kesalahan atau tolak permintaan
+    // ...
+}
+?>
 
 </html>

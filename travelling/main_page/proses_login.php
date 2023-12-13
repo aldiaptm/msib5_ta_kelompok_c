@@ -34,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redirect to the login page with an error message
-    header('Location: login.php?error=1');
+    // header('Location: login.php?error=1');
+    echo '<script>alert("Username atau Password salah!"); window.location.href = "login.php"</script>';
     exit();
 } else {
     // Redirect to the login page if login form is not submitted

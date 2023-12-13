@@ -23,6 +23,7 @@ if (isset($_SESSION['username'])) {
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <meta name="privacy-policy" content="https://www.example.com/privacy-policy">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -434,7 +435,7 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
-    <!-- Team End -->    
+    <!-- Team End -->
 
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">
