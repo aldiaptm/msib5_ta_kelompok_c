@@ -229,7 +229,7 @@ if (isset($_SESSION['username'])) {
                                     Like <i class="fas fa-thumbs-up"></i>
                                 </button>
 
-                                <button onclick="shareToFacebook()" class="btn btn-primary" style="height: 37px">Share to Facebook</button>
+                                <button onclick="shareToFacebook()" class="btn btn-primary" style="height: 38px">Share to Facebook</button>
                             </form>
                         </div>
                         <!-- Like Button End -->
