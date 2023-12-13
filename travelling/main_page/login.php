@@ -58,9 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Custom styles for this template-->
     <link href="../admin_page/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        .bg {
+            z-index: -1;
+            background-image: url("img/bg-login.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .col-lg-12 {
+            background-color: whitesmoke;
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-success">
+<body class="bg">
 
     <div class="container">
 
