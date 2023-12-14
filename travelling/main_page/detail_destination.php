@@ -209,7 +209,6 @@ if (isset($_SESSION['username'])) {
                         <div class="bg-white mb-3" style="padding: 30px;">
                             <!-- Tambahkan Button dengan Icon Like -->
                             <form id="likeForm" action="proses_like_destinasi.php" method="post"> 
-                                //mengunakan form untuk like nya 
                                 <input type="hidden" name="id_customer" value="<?php echo $id_customer; ?>">
                                 <input type="hidden" name="id_destinasi" value="<?php echo $id_destinasi; ?>">
                                 <?php
@@ -217,7 +216,7 @@ if (isset($_SESSION['username'])) {
                                 $data = mysqli_fetch_array($query); ?>
                                 <p> Disukai oleh
                                     <b>
-                                        <?php echo $data["jumlah"] ?> //untuk menampilkan jumlah like berdasarkan id destinasi
+                                        <?php echo $data["jumlah"] ?>
                                     </b>
                                     orang
                                 </p>
