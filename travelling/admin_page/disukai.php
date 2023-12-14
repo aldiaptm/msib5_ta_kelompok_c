@@ -186,14 +186,14 @@
                                         while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
-                                                <td style="font-size: 12px; padding-top: 120px">
+                                                <td style="font-size: 22px; padding-top: 100px">
                                                     <?= $data['nama_destinasi']; ?>
                                                 </td>
                                                 <td style="text-align: center">
                                                     <img src="<?= $data['gambar']; ?>" alt="<?= $data['gambar']; ?>"
-                                                        style="width:250px; height: 250px">
+                                                        style="width:150px; height: 150px; margin-bottom: -200px">
                                                 </td>
-                                                <td style="font-size: 18px; padding: 100px; padding-left:px; width: 50px">
+                                                <td style="font-size: 22px; padding: 100px; padding-left:px; width: 50px">
                                                     <?= $data['jumlahlike']; ?>
                                                 </td>
                                             </tr>

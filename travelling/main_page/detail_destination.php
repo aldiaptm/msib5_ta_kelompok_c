@@ -117,14 +117,9 @@ if (isset($_SESSION['username'])) {
                             </div>
                             <?php
                         } else {
-                            ?>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Customer</a>
-                                <div class="dropdown-menu border-0 rounded-0 m-0">
-                                    <a href="logout.php" class="dropdown-item">Logout</a>
-                                </div>
-                            </div>
-                            <?php
+                            header("Location: login.php");
+                            exit();
+                        
                         }
                         ?>
                     </div>
