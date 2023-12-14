@@ -229,7 +229,9 @@ if (isset($_SESSION['username'])) {
                                     Like <i class="fas fa-thumbs-up"></i>
                                 </button>
 
-                                <button onclick="shareToFacebook()" class="btn btn-primary" style="height: 38px">Share to Facebook</button>
+                                <button onclick="shareToFacebook()" class="btn btn-info" style="height: 38px">
+                                <i class="fab fa-facebook-f">acebook</i> <i class="far fa-share-square"></i>
+                                </button>
                             </form>
                         </div>
                         <!-- Like Button End -->
@@ -347,8 +349,8 @@ if (isset($_SESSION['username'])) {
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">EDU</span>TRAVEL</h1>
                 </a>
-                <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed
-                    vero lorem dolor dolor</p>
+                <p>Travel kami menyediakan layanan ke berbagai wisata di Indonesia, dengan harga yang kompetitif kalian
+                    bisa menikmati liburan tanpa khawatir.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.twitter.com"><i
