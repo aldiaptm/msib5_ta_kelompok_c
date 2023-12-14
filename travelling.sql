@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 05:31 AM
+-- Generation Time: Dec 14, 2023 at 07:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,7 +64,8 @@ INSERT INTO `contact` (`id_contact`, `nama_contact`, `subjek`, `pesan`, `tanggal
 (13, 'Tukul', 'Apresiasi', 'Pelayanan sangat baik dan ramah, ditingkatkan kembali ya pelayanannya!', '2023-11-29 10:30:02'),
 (14, 'Ucup', 'Keluhan', 'Tidak dapat registrasi karena tidak ada halaman registrasi:(', '2023-11-29 11:30:41'),
 (15, 'Udin', 'Apresiasi', 'Edu Travel amat sangat direkomendasikan bagi kalian yang ingin liburan dengan budget yang sesuai dengan yang kalian punya!', '2023-11-29 08:27:08'),
-(16, 'Aziz', 'Ngeluh', 'Putus asa, jangan semangat!!', '2023-11-30 07:21:46');
+(16, 'Aziz', 'Ngeluh', 'Putus asa, jangan semangat!!', '2023-11-30 07:21:46'),
+(17, 'Tukul', 'Masukan', 'Kedalam', '2023-12-13 07:19:52');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,11 @@ INSERT INTO `customer` (`id_customer`, `username`, `password`, `nama`, `email`, 
 (8, 'jujun', '$2y$10$tlLt/W4RAe2.kE3Z3PeX8evgJxgJG2Vz6oWNa6ZuZsZUl2yYdmmqq', 'Jujun Junaedi', 'jujun16@gmail.com', '081283824812'),
 (9, 'vino', '$2y$10$4QE1s27/E.RwzJijN0PEk.1RwxpF/fhm06BuYYXYtIs0uHQFGbOjq', 'Vino G Bastian', 'vino@gmail.com', '081238182384'),
 (10, 'amar', '$2y$10$fSRSgXhptaMWM.9vh7/gLOP1QaytHO/ABXZNX9Q1PDk7FZTtT4GFu', 'Amar Zoni', 'amarz@gmail.com', '0812399237134'),
-(11, 'indra', '$2y$10$gUSqxIm1k3AHOamMqnUf4ODLOjFa4AfQImQqAbSO5KKPlPIDUHMWu', 'Indra Brugman', 'indra@gmail.com', '0897471274127');
+(11, 'indra', '$2y$10$gUSqxIm1k3AHOamMqnUf4ODLOjFa4AfQImQqAbSO5KKPlPIDUHMWu', 'Indra Brugman', 'indra@gmail.com', '0897471274127'),
+(12, 'dadang', '$2y$10$FrNxU55PLhZg0wjr/ySI4uBzrigfqYAPcGFgaTHNv4l3F3JL4R3gW', 'Dadang Naser', 'dadang@gmail.com', '08572317237'),
+(13, 'tating', '$2y$10$5RgaGAIM.OfEqbIV8T4uo.C91BYg64o/2aBTdmI09Vmc/rDxyBc4e', 'Bi Tating', 'tating@gmail.com', '089588282328'),
+(14, 'dicky', '$2y$10$6URa9YiX.fI286K/QPEOp.ORbA/O35ZaA19WKLz4oIpcQUbrW4cIq', 'Dicky Ardiansyah', 'dicky123@gmail.com', '081222381247'),
+(15, 'jujun', '$2y$10$7iwYgZBbL0YkfdN20xaFWegzUpH/A63RMeeBCX9rc..9uvycNy5F.', 'Jujun Junaedi', 'jujun@gmail.com', '0812312737124');
 
 -- --------------------------------------------------------
 
@@ -118,7 +123,17 @@ INSERT INTO `customer_like` (`id_like`, `id_customer`, `id_destinasi`) VALUES
 (15, 9, 1),
 (16, 10, 1),
 (17, 11, 5),
-(18, 9, 5);
+(18, 9, 5),
+(19, 7, 4),
+(20, 1, 4),
+(21, 13, 4),
+(22, 2, 4),
+(23, 9, 3),
+(24, 1, 11),
+(25, 9, 2),
+(26, 8, 2),
+(27, 8, 1),
+(28, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -349,19 +364,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_contact` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer_like`
 --
 ALTER TABLE `customer_like`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `destinasi`
@@ -391,7 +406,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `ulasan`
