@@ -94,14 +94,14 @@
     <!-- Custom scripts for all pages-->
     <script src="admin_page/js/sb-admin-2.min.js"></script>
 
-    <script>
+    <script> // fungsi untuk buka tutup password icon mata
         const passwordInput = document.getElementById('exampleInputPassword');
         const togglePasswordButton = document.getElementById('togglePassword');
 
         togglePasswordButton.addEventListener('click', function () {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            togglePasswordButton.classList.toggle('fa-eye-slash');
+            togglePasswordButton.classList.toggle('fa-eye-slash'); 
         });
     </script>
 

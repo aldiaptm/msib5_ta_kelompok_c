@@ -2,7 +2,7 @@
 include 'koneksi.php';
 
 // hitungan detik
-$sesi_waktu_hidup = 600;
+$sesi_waktu_hidup = 1200; //sesi waktu selama 20 meenit
 session_set_cookie_params($sesi_waktu_hidup);
 session_start(); // Mulai session
 

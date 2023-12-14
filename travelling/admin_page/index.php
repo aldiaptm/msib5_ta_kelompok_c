@@ -115,10 +115,10 @@
 
 <body id="page-top">
     <?php
-    include '../koneksi.php';
+    include '../koneksi.php'; //menghubungkan database ke dalam halaman admin
     ?>
     <?php
-    $query = mysqli_query($koneksi, "SELECT * FROM admin;");
+    $query = mysqli_query($koneksi, "SELECT * FROM admin;"); //select bagian tabel admin 
     $data = mysqli_fetch_array($query); ?>
 
     <!-- Page Wrapper -->
@@ -232,7 +232,7 @@
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT COUNT(id_contact) AS totalcontact FROM contact;");
+                                    $query = mysqli_query($koneksi, "SELECT COUNT(id_contact) AS  totalcontact FROM contact;");
                                     $data = mysqli_fetch_array($query); ?>
                                     <?php echo $data["totalcontact"] ?>
                                 </span>

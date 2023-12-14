@@ -3,11 +3,11 @@ session_start();
 include '../koneksi.php';
 
 // Check if user is logged in
-if (isset($_SESSION['username'])) {
-    $loggedInUsername = $_SESSION['username'];
+if (isset($_SESSION['username'])) { //memeriksa data pengguna berdasarkan username pada saat melakukan login
+    $loggedInUsername = $_SESSION['username']; //setelah melakukan login, data login akan di tampung di  loggedInUsernam 
 
     // Retrieve id_customer based on the username
-    $queryCustomer = mysqli_query($koneksi, "SELECT id_customer FROM customer WHERE username = '$loggedInUsername'");
+    $queryCustomer = mysqli_query($koneksi, "SELECT id_customer FROM customer WHERE username = '$loggedInUsername'"); 
 
     if ($queryCustomer && $customerData = mysqli_fetch_assoc($queryCustomer)) {
         $id_customer = $customerData['id_customer'];

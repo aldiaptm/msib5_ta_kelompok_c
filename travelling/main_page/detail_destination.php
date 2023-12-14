@@ -208,7 +208,8 @@ if (isset($_SESSION['username'])) {
                         <!-- Like Button Start -->
                         <div class="bg-white mb-3" style="padding: 30px;">
                             <!-- Tambahkan Button dengan Icon Like -->
-                            <form id="likeForm" action="proses_like_destinasi.php" method="post">
+                            <form id="likeForm" action="proses_like_destinasi.php" method="post"> 
+                                //mengunakan form untuk like nya 
                                 <input type="hidden" name="id_customer" value="<?php echo $id_customer; ?>">
                                 <input type="hidden" name="id_destinasi" value="<?php echo $id_destinasi; ?>">
                                 <?php
@@ -216,7 +217,7 @@ if (isset($_SESSION['username'])) {
                                 $data = mysqli_fetch_array($query); ?>
                                 <p> Disukai oleh
                                     <b>
-                                        <?php echo $data["jumlah"] ?>
+                                        <?php echo $data["jumlah"] ?> //untuk menampilkan jumlah like berdasarkan id destinasi
                                     </b>
                                     orang
                                 </p>
@@ -449,7 +450,7 @@ if (isset($_SESSION['username'])) {
             FB.init({
                 appId: '843220474218882',
                 autoLogAppEvents: true,
-                xfbml: true,
+                xfbml: true, //Saat Anda mengatur xfbml ke true, ini mengindikasikan bahwa aplikasi Anda akan menggunakan XFBML dalam integrasinya dengan Facebook.
                 version: 'v12.0'
             });
         };
